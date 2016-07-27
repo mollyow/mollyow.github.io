@@ -1,10 +1,8 @@
 ---
 layout: default
-Title: "Contact"
+title: "Contact"
 date: 2016-07-26
 ---
-{{ page.title }}   
-{{ page.published_at }}  
 
 Please contact me directly for a current version of my cv. 
 
