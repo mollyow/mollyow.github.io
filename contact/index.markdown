@@ -11,7 +11,7 @@ Yale University
 PO Box 208301  
 New Haven, CT 06520-8301
 
-**Email**  
+**Email:**  
 molly.offer-westort@yale.edu  
 OR  
 mollyow@gmail.com
