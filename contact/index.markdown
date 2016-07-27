@@ -1,6 +1,6 @@
 ---
 layout: default
-Title: "contact"
+Title: "Contact"
 date: 2016-07-26
 ---
 Please contact me directly for a current version of my cv. 
@@ -19,4 +19,4 @@ mollyow@gmail.com
 **Or find me at:**  
 [linkedin](https://www.linkedin.com/in/molly-offer-westort-1a61b02b)  
 [twitter](https://twitter.com/mofferw)  
-[comment]: ([Google Scholar](https://scholar.google.com/citations?user=LXRPhHoAAAAJ&hl=en&oi=ao))
+<!-- [Google Scholar](https://scholar.google.com/citations?user=LXRPhHoAAAAJ&hl=en&oi=ao) --> 
