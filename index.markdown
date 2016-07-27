@@ -3,7 +3,7 @@ layout: default
 title: Home
 date:   2016-07-26
 ---
-<img style="left;margin:0 10px 10px 0" src="/assets/molly_brick.jpg" alt="pic" style="width: 350px;"/>
+<img style="float: left; margin:0 10px 10px 0" src="/assets/molly_brick.jpg" alt="pic" style="width: 350px;"/>
 
 I'm a third year doctoral student in [political science](http://politicalscience.yale.edu/) at [Yale University](http://www.yale.edu/). 
 My focus is on quantitative methodology for social science research. I'm also interested in the role of social identity on redistributive preferences, with a regional focus on West Africa and the Sahel.
