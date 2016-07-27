@@ -6,4 +6,4 @@ title: Molly Offer-Westort
 
 I'm a graduate student at Yale University.
 
-<img src="/assets/molly_brick.jpg" alt="pic" style="width: 200px;"/>
+<img src="/assets/molly_brick.jpg" alt="pic" style="width: 100px;"/>
