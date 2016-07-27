@@ -15,3 +15,7 @@ New Haven, CT 06520-8301
 molly.offer-westort@yale.edu  
 OR  
 mollyow@gmail.com
+
+[linkedin](https://www.linkedin.com/in/molly-offer-westort-1a61b02b)
+
+[twitter](https://twitter.com/mofferw)
