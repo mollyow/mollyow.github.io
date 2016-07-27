@@ -2,9 +2,9 @@
 layout: default
 title: Molly Offer-Westort
 ---
-##Splash Page
+##Splash Page  
 
 I'm a graduate student at Yale University.
 
-![My helpful screenshot]({{ site.url }}/assets/molly_brick.jpg)
+![pic]({{ site.url }}/assets/molly_brick.jpg=250x)
 
