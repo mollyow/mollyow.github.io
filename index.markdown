@@ -2,7 +2,8 @@
 layout: default
 title: Molly Offer-Westort
 ---
-##Splash Page  
+Splash Page  
+------------
 
 I'm a graduate student at Yale University.
 
