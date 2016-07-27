@@ -6,5 +6,5 @@ title: Molly Offer-Westort
 
 I'm a graduate student at Yale University.
 
-![]({{ site.url }}/assets/molly_brick.jpg)
+![]({{ site.url }}/assets/molly_brick.jpg =250x)
 
