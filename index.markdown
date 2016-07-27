@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Molly Offer-Westort"
+title: "Home"
 date:   2016-07-26
 ---
 <img style="float: left; width: 350px; margin: 0 20px 10px 0" src="/assets/molly_brick.jpg" alt="pic" />
