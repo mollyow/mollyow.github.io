@@ -17,5 +17,5 @@ OR
 mollyow@gmail.com
 
 [linkedin](https://www.linkedin.com/in/molly-offer-westort-1a61b02b)
-
 [twitter](https://twitter.com/mofferw)
+[//]: # ([Google Scholar](https://scholar.google.com/citations?user=LXRPhHoAAAAJ&hl=en&oi=ao))
