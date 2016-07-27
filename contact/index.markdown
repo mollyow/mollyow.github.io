@@ -3,6 +3,8 @@ layout: default
 Title: "Contact"
 date: 2016-07-26
 ---
+{{ page.title }}  
+
 Please contact me directly for a current version of my cv. 
 
 **Address:**  
