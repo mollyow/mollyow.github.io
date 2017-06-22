@@ -8,7 +8,7 @@ date:   2017-06-22
 I'm a doctoral student in [political science](http://politicalscience.yale.edu/){:target="_blank"} at [Yale University](http://www.yale.edu/){:target="_blank"}. 
 My focus is on quantitative methodology for social science research, as well as how group experiences and social identity affect redistributive preferences.
 
-The most recent version of my cv is available [here](https://mollyow.github.io/assets/cv_MOW_2017.pdf)
+The most recent version of my cv is available [here](https://mollyow.github.io/assets/cv_MOW_2017.pdf).
 
 I have been the manager for Yale's [Institution for Social and Policy Studies (ISPS)](http://isps.yale.edu) [Behavioral Research Lab](http://isps.yale.edu/yale-isps-behavioral-research-lab) since the fall of 2016. And I was a 2016-2017 [ISPS Graduate Policy Fellow](http://isps.yale.edu/team/molly-offer-westort), researching interference on social networks. At Yale, I have worked in collaborative research labs with Peter Aronow, [Gregory Huber](http://huber.research.yale.edu/gspd.html), and [Forrest Crawford](http://www.crawfordlab.io/people/).
 
