@@ -4,7 +4,7 @@ title: "Contact"
 date: 2016-07-26
 ---
 
-***Address:***  
+**Address:**  
 Political Science Department  
 Yale University  
 PO Box 208301  

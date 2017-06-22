@@ -3,7 +3,7 @@ layout: design-mow
 title: "Home"
 date:   2017-06-22
 ---
-<img style="float: left; width: 350px; margin: 0 20px 10px 0" src="/assets/molly_brick.jpg" alt="pic" />
+<img style="float: left; width: 250px; margin: 0 20px 10px 0" src="/assets/molly_brick.jpg" alt="pic" />
 
 I'm a doctoral student in [political science](http://politicalscience.yale.edu/){:target="_blank"} at [Yale University](http://www.yale.edu/){:target="_blank"}. 
 My focus is on quantitative methodology for social science research, as well as how group experiences and social identity affect redistributive preferences.
