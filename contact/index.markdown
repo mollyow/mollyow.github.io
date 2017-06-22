@@ -1,7 +1,7 @@
 ---
-layout: default
+layout: design-mow
 title: "Contact"
-date: 2016-07-26
+date:   2017-06-22
 ---
 
 **Address:**  
