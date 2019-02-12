@@ -1,2 +1,2 @@
 # mollyow.github.io
-personal website
+Molly Offer-Westort's personal/professional website. 
