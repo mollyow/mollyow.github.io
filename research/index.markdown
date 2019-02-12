@@ -1,6 +1,6 @@
 ---
 layout: design-mow
-Title: "research"
+Title: "Research"
 date: 2018-02-12
 ---
 Coming soon!
