@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: design-mow
 Title: "cv"
 date: 2016-07-26
 ---
