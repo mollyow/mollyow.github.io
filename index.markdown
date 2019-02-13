@@ -9,7 +9,3 @@ I am a fifth year doctoral candidate in [political science](http://politicalscie
 I work on quantitative methodology for social science research. 
 
 At Yale, I have worked in collaborative research labs with [Peter Aronow](http://aronow.research.yale.edu/), [Gregory Huber](http://huber.research.yale.edu/gspd.html), and [Forrest Crawford](http://www.crawfordlab.io/people/). In the summer of 2018, I interned with Facebook's [Core Data Science team](https://research.fb.com/category/data-science/).
-
-text text text
-text text text
-text text text
