@@ -46,8 +46,8 @@ ul.posts li {
 
 /* The sidebar menu */
 .sidenav {
-  width: 200px; /* Set the width of the sidebar */
-  position: relative; /* Fixed Sidebar (stay in place on scroll) */
+  width: 160px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
@@ -71,7 +71,7 @@ ul.posts li {
 
 /* Style page content */
 .main {
-  margin-left: 200px; /* Same as the width of the sidebar */
+  margin-left: 160px; /* Same as the width of the sidebar */
   padding: 0px 10px;
 }
 
