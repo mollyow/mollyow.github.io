@@ -1,13 +1,11 @@
 # Site settings
 title: Molly Offer-Westort's Personal Website
-email: mollyow@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  Molly Offer-Westort, PhD student, Yale University
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://mollyow.github.io" # the base hostname & protocol for your site
-twitter_username: mofferw 
-github_username:  mollyow
-permalink: /blog/:year/:month/:day/:title
+description: Molly Offer-Westort
+baseurl: ""
+url: "http://mollyow.github.io"
+author:
+  name: Molly Offer-Westort
+  email: mollyow@gmail.com
 
 gems:
   - jekyll-sitemap
