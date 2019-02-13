@@ -1,6 +1,6 @@
 ---
-layout: design-mow
-title: "Home"
+layout: sidebar
+title: "Working"
 date:   2019-02-12
 ---
 <img style="float: left; width: 250px; margin: 0 20px 10px 0" src="/assets/molly_brick.jpg" alt="pic" />
