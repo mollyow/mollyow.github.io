@@ -3,7 +3,7 @@ layout: design-mow
 title: "Home"
 date:   2020-11-07
 ---
-<img style="float: left; width: 240px; margin: 0 20px 10px 0" src="/assets/molly_brick.jpg" alt="pic" />
+<img style="float: left; width: 240px; margin: 0 20px 10px 0" src="/assets/molly_brick.jpg" alt="photo" />
 
 I am currently a post-doctoral fellow at the Stanford Graduate School of Business in [Susan Athey's](https://athey.people.stanford.edu/){:target="_blank"} [Golub Capital Social Impact Lab](https://www.gsb.stanford.edu/faculty-research/centers-initiatives/sil){:target="_blank"}. 
 
