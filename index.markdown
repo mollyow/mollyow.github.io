@@ -5,7 +5,7 @@ date:   2020-11-07
 ---
 <img style="float: left; width: 240px; margin: 0 20px 10px 0" src="/assets/molly_brick.jpg" alt="pic" />
 
-I am currently a post-doctoral fellow at the Stanford Graduate School of Business in [Susan Athey's](https://athey.people.stanford.edu/) [Golub Capital Social Impact Lab](https://www.gsb.stanford.edu/faculty-research/centers-initiatives/sil){:target="_blank"}. 
+I am currently a post-doctoral fellow at the Stanford Graduate School of Business in [Susan Athey's](https://athey.people.stanford.edu/){:target="_blank"} [Golub Capital Social Impact Lab](https://www.gsb.stanford.edu/faculty-research/centers-initiatives/sil){:target="_blank"}. 
 
 In July of 2021, I will join the [Department of Political Science at The Universty of Chicago](https://political-science.uchicago.edu/){:target="_blank"} as an Assistant Professor. 
 
