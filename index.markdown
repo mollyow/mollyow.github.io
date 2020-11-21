@@ -7,7 +7,7 @@ date:   2020-11-07
 
 I am currently a post-doctoral fellow at the Stanford Graduate School of Business in [Susan Athey's](https://athey.people.stanford.edu/){:target="_blank"} [Golub Capital Social Impact Lab](https://www.gsb.stanford.edu/faculty-research/centers-initiatives/sil){:target="_blank"}. 
 
-In July of 2021, I will join the [Department of Political Science at The Universty of Chicago](https://political-science.uchicago.edu/){:target="_blank"} as an Assistant Professor. 
+In July of 2021, I will join the [Department of Political Science at The University of Chicago](https://political-science.uchicago.edu/){:target="_blank"} as an Assistant Professor. 
 
 I work on quantitative methodology for social science research, with a focus on causal inference and experimental design. My PhD is joint in [Political Science](http://politicalscience.yale.edu/){:target="_blank"} and [Statistics & Data Science](http://statistics.yale.edu/){:target="_blank"}, conferred by Yale University in 2019; I also hold a Masters in Statistics, also from Yale, and a Masters in Public Affairs, from the [Princeton School of Public and International Affairs](https://spia.princeton.edu/){:target="_blank"}. 
 
