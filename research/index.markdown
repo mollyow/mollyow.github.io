@@ -7,6 +7,15 @@ date:   2020-11-07
 ### Selected projects
 
 ----
+## Adaptive Experimental Design: Prospects and Applications in Political Science
+
+*Joint work with [Alexander Coppock](https://alexandercoppock.com/){:target="_blank"} and [Donald P. Green](https://sites.google.com/site/donaldpgreen/){:target="_blank"}.*
+
+Experimental researchers in political science frequently face the problem of infer- ring which of several treatment arms is most effective. They may also seek to estimate mean outcomes under that arm, construct confidence intervals, and test hypotheses. Ordinarily, multi-arm trials conducted using static designs assign participants to each arm with fixed probabilities. However, a growing statistical literature suggests that adaptive experimental designs that dynamically allocate larger assignment probabili- ties to more promising treatments are better equipped to discover the best-performing arm. Using simulations and empirical applications, we explore the conditions under which such designs hasten the discovery of superior treatments and improve the pre- cision with which their effects are estimated. Recognizing that many scholars seek to assess performance relative to a control condition, we also develop and implement a novel adaptive algorithm that seeks to maximize the precision with which the largest treatment effect is estimated.
+
+[paper](http://dx.doi.org/10.2139/ssrn.3364402), forthcoming at AJPS
+
+----
 
 ## Adaptive experimentation tutorial
 
@@ -38,14 +47,21 @@ largely been limited to the U.S. and Europe.
 [preanalysis plan](https://osf.io/cqu4w/){:target="_blank"}
 
 ----
+## Hierarchical ridge regression tutorial
 
-## Adaptive Experimental Design: Prospects and Applications in Political Science
+Suppose we have a factorial experiment, where we want to account for
+two-way and higher-order interactions. We may think that interaction
+effects will be small but not exactly equal to zero, and higher-order
+interactions will tend to be associated with smaller effects relative to
+lower order interactions.
 
-*Joint work with [Alexander Coppock](https://alexandercoppock.com/){:target="_blank"} and [Donald P. Green](https://sites.google.com/site/donaldpgreen/){:target="_blank"}.*
+Accounting for all interactions in a standard linear model may be costly
+in terms of variance, so we want to use some form of regularization.
 
-Experimental researchers in political science frequently face the problem of infer- ring which of several treatment arms is most effective. They may also seek to estimate mean outcomes under that arm, construct confidence intervals, and test hypotheses. Ordinarily, multi-arm trials conducted using static designs assign participants to each arm with fixed probabilities. However, a growing statistical literature suggests that adaptive experimental designs that dynamically allocate larger assignment probabili- ties to more promising treatments are better equipped to discover the best-performing arm. Using simulations and empirical applications, we explore the conditions under which such designs hasten the discovery of superior treatments and improve the pre- cision with which their effects are estimated. Recognizing that many scholars seek to assess performance relative to a control condition, we also develop and implement a novel adaptive algorithm that seeks to maximize the precision with which the largest treatment effect is estimated.
+*Hierarchical ridge regression* facilitates penalization that is increasing with
+degree of complexity of interactions.
 
-[paper](http://dx.doi.org/10.2139/ssrn.3364402), forthcoming at AJPS
+[tutorial](https://github.com/mollyow/shrinkage-tutorial/blob/master/tutorial.md){:target="_blank"}
 
 ----
 
