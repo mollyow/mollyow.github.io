@@ -3,7 +3,7 @@ layout: design-mow
 title: "Home"
 date:   2020-11-07
 ---
-<img style="float: left; width: 300px; margin: 0 20px 10px 0" src="/assets/molly_brick.jpg" alt="photo" />
+<img style="float: left; width: 300px; margin: 0 20px 10px 0" src="/assets/molly_brick_2021_.jpg" alt="photo" />
 
 I am an Assistant Professor in the [Department of Political Science at The University of Chicago](https://political-science.uchicago.edu/){:target="_blank"}. 
 
