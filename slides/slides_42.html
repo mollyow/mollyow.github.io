@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>4.2 Experiments and Estimands</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="co-taught by Molly Offer-Westort &amp; Andy Eggers" />
+    <meta name="author" content=".small-text[(This lecture with references to Gerber &amp; Green (2012))]" />
+    <script src="slides_42_files/header-attrs-2.10/header-attrs.js"></script>
+    <link href="slides_42_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="slides_42_files/remark-css-0.0.1/robot.css" rel="stylesheet" />
+    <link href="slides_42_files/remark-css-0.0.1/robot-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# 4.2 Experiments and Estimands
+## PLSC30500, Fall 2021
+### co-taught by Molly Offer-Westort &amp; Andy Eggers
+### .small-text[(This lecture with references to Gerber &amp; Green (2012))]
+
+---
+
+
+
+
+&lt;style type="text/css"&gt;
+.small-output .remark-code{
+  font-size: x-small;
+}
+
+# .show-only-last-code-result pre + pre:not(:last-of-type) code[class="remark-code"] {
+#     display: none;
+# }
+&lt;/style&gt;
+
+
+# Estimation
+
+---
+
+## Estimand
+
+The *estimand* is the parameter of interest--it is the quantity that we would like to know about.
+
+--
+
+For example, when we care about causal effects, the estimand may be:
+
+ - the Average Treatment Effect (ATE)
+ - the Average effect of Treatment on the Treated (ATT)
+ - the Average effect of Treatment on the Control (ATC)
+
+--
+
+Why might these three quantities differ?
+
+--
+
+*Notational aside: we often denote the estimand with the greek letter `\(\theta\)`. Specific estimands may have conventional notations, such as `\(\mu\)` for the mean or `\(\sigma\)` for the standard deviation.*
+
+
+---
+
+## Estimator
+
+An *estimator* is a function of the data we observe; it is an informed guess about the value of the estimand. 
+--
+Below, the estimator is the function `\(g(\cdot)\)`. 
+
+
+$$
+g(X_1, \dots, X_n)
+$$
+
+
+---
+
+## Estimate
+
+An *estimate* is what we calculate from our estimator with a specific set of data. Below, the estimate is the quantity `\(\hat{\theta}_n\)`. 
+
+$$
+\hat{\theta}_n = g(X_1, \dots, X_n)
+$$
+
+---
+
+
+&lt;!-- Suppose we are interested in the population mean, `\(\mu\)`. --&gt;
+
+&lt;!-- - The population mean, `\(\mu\)`, is the estimand. --&gt;
+&lt;!-- - We will use the sample mean, `\(\bar{X}_n\)` as the estimator. --&gt;
+&lt;!-- - Given some data that we observe `\(x_1, \dots, x_n\)`, we calculate an estimate, `\(\bar{x}_n\)` --&gt;
+
+
+&lt;!-- --- --&gt;
+
+## Bias of an estimator
+
+The bias of an estimator is the expected difference between the estimate and the true value of the estimand. 
+
+$$
+\textrm{bias}(\hat{\theta}_n) = \textrm{E}[\hat\theta_n] - \theta
+$$
+
+--
+
+An estimator is *unbiased* if
+
+`$$\textrm{E}[\hat\theta_n] = \theta$$`
+
+---
+
+The estimator is a function of the data, and so whether or not the estimator is biased for our estimand *also depends on the data we see.*
+
+--
+
+In randomized experiments, we are in a special setting where get input on what data we observe. 
+
+
+---
+
+# Randomization
+
+---
+
+## Design
+
+
+Gerber Green example:
+
+--
+
+|           | `\(Y_i(0)\)` | `\(Y_i(1)\)` | `\(\tau_i\)` |
+|-----------|:--------:|:--------:|:--------:|
+| Village 1 |     ?    |    15    |     ?    |
+| Village 2 |    15    |     ?    |     ?    |
+| Village 3 |    20    |     ?    |     ?    |
+| Village 4 |    20    |     ?    |     ?    |
+| Village 5 |    10    |     ?    |     ?    |
+| Village 6 |    15    |     ?    |     ?    |
+| Village 7 |     ?    |    30    |     ?    |
+|           |          |          |          |
+
+---
+
+## Design
+
+
+Gerber Green example:
+
+|           | `\(Y_i(0)\)` | `\(Y_i(1)\)` | `\(\tau_i\)` |
+|-----------|:--------:|:--------:|:--------:|
+| Village 1 |     ?    |    15    |     ?    |
+| Village 2 |    15    |     ?    |     ?    |
+| Village 3 |    20    |     ?    |     ?    |
+| Village 4 |    20    |     ?    |     ?    |
+| Village 5 |    10    |     ?    |     ?    |
+| Village 6 |    15    |     ?    |     ?    |
+| Village 7 |     ?    |    30    |     ?    |
+|**Average**| **16**   |  **22.5**|  **?**   |
+
+---
+
+Target estimand: ATE 
+
+$$
+\textrm{E}[\tau_i] = \textrm{E}[Y_i(1)] - \textrm{E}[Y_i(0)]
+$$
+
+--
+
+Under random assignment where everyone has the same probability of being assigned treatment,
+
+$$
+`\begin{align}
+\textrm{E}[Y_i(1)|D_i = 1] &amp;= \textrm{E}[Y_i(1)|D_i = 0]
+\end{align}`
+$$
+
+---
+
+Target estimand: ATE 
+
+$$
+\textrm{E}[\tau_i] = \textrm{E}[Y_i(1)] - \textrm{E}[Y_i(0)]
+$$
+
+
+Under random assignment where everyone has the same probability of being assigned treatment,
+
+$$
+`\begin{align}
+\textrm{E}[Y_i(1)|D_i = 1] &amp;= \textrm{E}[Y_i(1)|D_i = 0]  \\\\
+&amp; = \textrm{E}[Y_i(1)]
+\end{align}`
+$$
+
+--
+And, 
+$$
+`\begin{align}
+\textrm{E}[Y_i(0)|D_i = 0] &amp;= \textrm{E}[Y_i(1)|D_i = 1]
+\end{align}`
+$$
+
+
+---
+
+
+Target estimand: ATE 
+
+$$
+\textrm{E}[\tau_i] = \textrm{E}[Y_i(1)] - \textrm{E}[Y_i(0)]
+$$
+
+
+Under random assignment where everyone has the same probability of being assigned treatment,
+
+$$
+`\begin{align}
+\textrm{E}[Y_i(1)|D_i = 1] &amp;= \textrm{E}[Y_i(1)|D_i = 0]  \\\\
+&amp; = \textrm{E}[Y_i(1)]
+\end{align}`
+$$
+
+And, 
+$$
+`\begin{align}
+\textrm{E}[Y_i(0)|D_i = 0] &amp;= \textrm{E}[Y_i(1)|D_i = 1] \\\\
+&amp; = \textrm{E}[Y_i(0)]
+\end{align}`
+$$
+
+---
+
+We are then able to use our estimates of `\(\textrm{E}[Y_i(1)|D_i = 1]\)` and `\(\textrm{E}[Y_i(0)|D_i = 0]\)` to get an estimate of `\(\textrm{E}[\tau_i]\)`. 
+
+--
+This is the difference in means estimator:
+
+$$
+\hat\tau_{DM} = \frac{\sum_i^n Y_i D_i}{\sum_i^n D_i} - \frac{\sum_i^n Y_i (1-D_i)}{\sum_i^n (1-D_i)}
+$$
+
+--
+
+The difference-in-means estimator is unbiased for the average treatment effect estimand, when treatment assignment is random. 
+
+---
+Plugging in from our example above, 
+
+|           | `\(Y_i(0)\)` | `\(Y_i(1)\)` | `\(\tau_i\)` |
+|-----------|:--------:|:--------:|:--------:|
+| Village 1 |     ?    |    15    |     ?    |
+| Village 2 |    15    |     ?    |     ?    |
+| Village 3 |    20    |     ?    |     ?    |
+| Village 4 |    20    |     ?    |     ?    |
+| Village 5 |    10    |     ?    |     ?    |
+| Village 6 |    15    |     ?    |     ?    |
+| Village 7 |     ?    |    30    |     ?    |
+|**Average**| **16**   |  **22.5**| **6.5**  |
+
+
+$$
+`\begin{align}
+\hat\tau_{DM} &amp; = \frac{\sum_i^n Y_i D_i}{\sum_i^n D_i} - \frac{\sum_i^n Y_i (1-D_i)}{\sum_i^n (1-D_i)}\\\\
+&amp; = \frac{15 +30}{2} - \frac{15 + 20 + 20 + 10 + 15}{5}\\\\
+&amp; = 6.5
+\end{align}`
+$$
+
+
+---
+
+Considering some real data, we'll look at
+
+*Butler, D. M., &amp; Broockman, D. E. (2011). Do politicians racially discriminate against constituents? A field experiment on state legislators*
+
+Data is available at the Yale ISPS data archive: isps.yale.edu/research/data
+
+
+```r
+df &lt;- read_csv('../data/legislators_email/Butler_Broockman_AJPS_2011_public_csv.csv')
+```
+
+
+
+```r
+head(df)
+```
+
+```
+## # A tibble: 6 x 15
+##   leg_party leg_republican leg_black leg_latino reply_atall treat_deshawn
+##   &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;         &lt;dbl&gt;
+## 1 R                      1         0          0           1             0
+## 2 D                      0         0          0           1             1
+## 3 R                      1         0          0           0             1
+## 4 R                      1         0          0           0             1
+## 5 D                      0         0          0           0             0
+## 6 D                      0         0          0           1             1
+## # … with 9 more variables: treat_demprimary &lt;dbl&gt;, treat_repprimary &lt;dbl&gt;,
+## #   treat_noprimary &lt;dbl&gt;, treat_group &lt;dbl&gt;, treat_jake &lt;dbl&gt;,
+## #   leg_notwhite &lt;dbl&gt;, leg_white &lt;dbl&gt;, leg_notblackotherminority &lt;dbl&gt;,
+## #   treat_primary &lt;dbl&gt;
+```
+
+---
+
+
+### Description
+
+*Emails are sent to state legislators. We signaled the race of the email sender by randomizing whether the email was signed by and sent from an email account with the name Jake Mueller or the name DeShawn Jackson.*
+
+--
+
+Treatment is 1 if the sender was DeShawn Jackson, and 0 if Jake Mueller. 
+
+
+```r
+table(df$treat_deshawn)
+```
+
+```
+## 
+##    0    1 
+## 2431 2428
+```
+
+The primary outcome is whether legislators replied at all. 
+
+
+```r
+table(df$reply_atall)
+```
+
+```
+## 
+##    0    1 
+## 2112 2747
+```
+
+---
+
+To get the difference-in-means estimate of the ATE, 
+
+
+```r
+Y1 &lt;- filter(df, treat_deshawn == 1) %&gt;% pull(reply_atall)
+Y0 &lt;- filter(df, treat_deshawn == 0) %&gt;% pull(reply_atall)
+
+head(Y1)
+```
+
+```
+## [1] 1 0 0 1 1 1
+```
+
+```r
+head(Y0)
+```
+
+```
+## [1] 1 0 1 1 1 1
+```
+
+--
+
+
+```r
+mean(Y1) - mean(Y0)
+```
+
+```
+## [1] -0.01782424
+```
+
+
+Legislators were 1.7 percentage points less likely to reply to an email if the sender was identified as DeShawn Jackson as compared to Jake Mueller. 
+
+---
+
+The `estimatr` package produces a difference-in-means estimate for us; the standard errors give us information about how precise we think the point estimate is--we'll come back to these later. 
+
+
+
+```r
+library(estimatr)
+
+difference_in_means(reply_atall ~ treat_deshawn, data = df)
+```
+
+```
+## Design:  Standard 
+##                  Estimate Std. Error   t value  Pr(&gt;|t|)    CI Lower   CI Upper
+## treat_deshawn -0.01782424  0.0142235 -1.253154 0.2102099 -0.04570874 0.01006026
+##                     DF
+## treat_deshawn 4856.827
+```
+
+
+---
+
+We can also look at conditional treatment effects. Here, we can condition on whether the legislator receiving the email was a Democrat vs. Republican. 
+
+`$$\textrm{E}[Y_i(1) - Y_i(0)|\textrm{party} = D]$$`
+
+
+```r
+Y1D &lt;- filter(df, treat_deshawn == 1, leg_party == 'D') %&gt;% pull(reply_atall)
+Y0D &lt;- filter(df, treat_deshawn == 0, leg_party == 'D') %&gt;% pull(reply_atall)
+
+mean(Y1D) - mean(Y0D)
+```
+
+```
+## [1] 0.015963
+```
+
+--
+
+`$$\textrm{E}[Y_i(1) - Y_i(0)|\textrm{party} = R]$$`
+
+
+```r
+Y1R &lt;- filter(df, treat_deshawn == 1, leg_party == 'R') %&gt;% pull(reply_atall)
+Y0R &lt;- filter(df, treat_deshawn == 0, leg_party == 'R') %&gt;% pull(reply_atall)
+
+mean(Y1R) - mean(Y0R)
+```
+
+```
+## [1] -0.05954107
+```
+
+--
+Democrats are *more* likely to respond to an email if the sender was identified as DeShawn Jackson as compared to Jake Mueller; whereas Republicans were *less* likely to respond. 
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "atelier-lakeside-light",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

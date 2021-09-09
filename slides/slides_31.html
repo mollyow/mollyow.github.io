@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>3.1 Brief Overview of Probability</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="co-taught by Molly Offer-Westort &amp; Andy Eggers" />
+    <meta name="author" content=".small-text[(This lecture with references to Aronow &amp; Miller (2019) and Wasserman (2004))]" />
+    <script src="slides_31_files/header-attrs-2.10/header-attrs.js"></script>
+    <link href="slides_31_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="slides_31_files/remark-css-0.0.1/robot.css" rel="stylesheet" />
+    <link href="slides_31_files/remark-css-0.0.1/robot-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# 3.1 Brief Overview of Probability
+## PLSC30500, Fall 2021
+### co-taught by Molly Offer-Westort &amp; Andy Eggers
+### .small-text[(This lecture with references to Aronow &amp; Miller (2019) and Wasserman (2004))]
+
+---
+
+
+
+&lt;style type="text/css"&gt;
+.small-output .remark-code{
+  font-size: x-small;
+}
+
+# .show-only-last-code-result pre + pre:not(:last-of-type) code[class="remark-code"] {
+#     display: none;
+# }
+&lt;/style&gt;
+
+
+
+ 
+# What do we do with data
+
+Now that we've gotten started on working with data...what do we want to get from that data?
+
+--
+
+- Describe what's going on in the data
+ 
+--
+
+ - We can do a pretty good job of this with the data visualization tools we have, along with summary statistics for numerical descriptions
+
+--
+
+This is already a really useful start, but beyond just describing the data we see in front of us, we may have other goals. We may want to:
+
+--
+
+- Make generalizations to a larger population
+
+--
+
+- Make informed guesses about how things would have turned out differently, if something different had happened
+
+--
+
+These latter two are called *inference*, and we'll need some additional tools and assumptions to make headway on them
+
+---
+# Probability
+## Why do we use probability theory?
+
+- Probability theory allows us to talk about *random* events in structured way. 
+
+--
+
+ - Often, we see only part of the picture we'd like to talk about. We only see some of the data, or we can only see one version of events. 
+
+--
+
+ - Probability theory gives us a way to describe the process that results in the data that we observe. 
+
+--
+
+ - It also allows us to *formalize our uncertainty* when making inference. 
+
+
+---
+
+## What does it mean to describe real world events as "random"?
+
+- Probability theory is an abstract construct, but it is useful for empirical research to create a model of the world in which events are probabilistic. 
+
+--
+
+ - If we are conducting measurement on some population but can only observe a sample, we assume that there is some randomness to who we observe and who we don't observe.
+
+--
+
+
+ - If we are describing events with counterfactuals, such as turning out to vote or testing positive for COVID, it can be useful to describe those events as probabilistic.
+
+--
+
+
+- These are *models* of how the world works, and they help us make sense of the fundamentally squishy nature of social science research. With limited information about the world, we operate with uncertainty. Assigning probabilities conditional on the information we *do* have helps us formalize that uncertainty. 
+--
+Even if we don't necessarily believe that human behavior is "random." 
+
+---
+## Flipping a coin twice
+
+Suppose we are flipping a coin twice, and the coin is fair. This is a random process, and we will describe the probability space associated with this process. 
+
+
+---
+
+
+name: terms
+
+## Useful terms in probability
+
+&lt;small&gt;
+--
+
+-  `\(\Omega\)` : Sample space. Describes all possible outcomes in our setting.
+
+--
+
+ - `\(\omega\)` : Generic notation for the realized outcomes in the sample space.[1]
+ 
+  .footnote[[1]In probability, we often use uppercase terms to denote the random process, and lowercase terms to denote specific outcomes of that random process.]
+
+--
+
+ - Here, `\(\Omega = \{HH, HT, TH, TT \}\)`.
+
+--
+
+- Event: a subset of `\(\Omega\)`. 
+--
+
+ - We will often use terms like `\(A\)` or `\(B\)` to define events. 
+ 
+--
+ 
+ - In our example, the event that we get a head on the first flip is `\(A = \{HT, HH\}\)`. 
+
+--
+
+- `\(S\)` : Event space. Describes all subsets of events, including the null set. [[Full event space]](#event_space)
+
+--
+
+ - We use this in addition to the sample space, so we can describe all types of events that we can define the probability for. 
+
+--
+
+- `\(\textrm{P}\)` : Probability measure. A function that assigns probability to all of the events in the event space. 
+
+--
+
+ - Here, since our coin is fair, for the event that we get a head on the first flip, `\(\textrm{P}(A) = 1/2\)`. 
+
+
+&lt;/small&gt;
+
+---
+## An aside on mathematical notation 
+
+Mathematical notation is a tool that gives us a common language to express concepts with precision. There are different conventions in different communities, and no approach is "right" or "wrong"--it's just a question of whether your notation is appropriately communicating to your audience what you want it to. 
+
+--
+
+To use mathematical notation in R Markdown, write LaTeX typesetting commands inside of dollar signs. 
+--
+
+
+For example, 
+
+`$Y = \beta_0 + \beta_1 X$` 
+
+--
+
+is rendered as 
+
+`\(Y = \beta_0 + \beta_1 X\)`.
+
+
+We have just used probability notation as a way to fully describe any random generative process. 
+
+---
+
+We can simulate our double coin flip process in R, using the `sample()` function. There are four possible outcomes, and all are equally likely. 
+
+--
+
+
+```r
+Omega &lt;- c('HH', 'HT', 'TH', 'TT')
+probs &lt;- c(0.25, 0.25, 0.25, 0.25)
+
+sample(x = Omega,
+       size = 1,
+       prob = probs)
+```
+
+```
+## [1] "HH"
+```
+
+--
+
+We can run this simulation many times, and our results should *approximately* follow the probabilities we assigned. 
+
+
+```r
+n &lt;- 1000
+result_n &lt;- sample(x = Omega,
+       size = n,
+       prob = probs,
+       replace = TRUE)
+
+table(result_n)
+```
+
+```
+## result_n
+##  HH  HT  TH  TT 
+## 247 241 258 254
+```
+
+---
+
+## Independent events
+
+- Two events are *independent* if
+
+$$
+\textrm{P}(AB) = \textrm{P}(A)\textrm{P}(B)
+$$
+
+--
+
+*Notational aside: The event `\(AB\)` is that both `\(A\)` and `\(B\)` happen. There are other ways to write this, including `\(A \cap B\)`.*
+
+---
+
+Returning to our example of flipping two fair coins. Let's say:
+
+- Event `\(A\)`: we get a head on the first coin flip; `\(A = \{HT, HH\}\)`. 
+- Event `\(B\)`: we get a head on the second coin flip; `\(B = \{TH, HH\}\)`. 
+- We can see the event `\(AB\)` as the overlap in their respective sets, `\(AB = \{HH\}\)`
+
+---
+The coin flips are unrelated, so the events should be independent. We can check this mathematically.
+
+--
+
+- First, we know that all of the outcomes `\(\Omega = \{HH, HT, TH, TT \}\)` are equally likely.
+
+
+$$
+`\begin{align}
+\textrm{P}(A) &amp;= \textrm{P}(\{HT\}) + \textrm{P}(\{HH\}) = 0.25 + 0.25 = 0.5\\\
+\textrm{P}(B) &amp;= \textrm{P}(\{TH\}) + \textrm{P}(\{HH\}) = 0.25 + 0.25 = 0.5
+\end{align}`
+$$
+
+--
+
+Then, we can calculate the product of the probabilities, and the probability of the joint event.
+
+$$
+`\begin{align}
+\textrm{P}(A)\textrm{P}(B) &amp;= 0.5 \times 0.5 = 0.25\\\
+\textrm{P}(A B) &amp;= \textrm{P}(\{HH\}) = 0.25\
+\end{align}`
+$$
+
+--
+
+We see that they are the same, so we have independence.
+
+$$
+\textrm{P}(A)\textrm{P}(B) = \textrm{P}(A B)
+$$
+
+&lt;/small&gt;
+
+---
+
+&lt;small&gt;
+
+We can also check if observed proportions in our simulations show the same thing. 
+
+
+```r
+Omega &lt;- c('HH', 'HT', 'TH', 'TT');  probs &lt;- c(0.25, 0.25, 0.25, 0.25)
+result_n &lt;- sample(x = Omega, 
+                   size = n,
+                   prob = probs,
+                   replace = TRUE)
+
+(observed_props &lt;- prop.table(table(result_n)))
+```
+
+```
+## result_n
+##    HH    HT    TH    TT 
+## 0.273 0.264 0.243 0.220
+```
+
+--
+
+
+```r
+(PA &lt;- mean(result_n == 'HT' | result_n == 'HH'))
+```
+
+```
+## [1] 0.537
+```
+
+--
+
+
+```r
+(PB &lt;- mean(result_n == 'TH' | result_n == 'HH'))
+```
+
+```
+## [1] 0.516
+```
+
+--
+
+
+```r
+(PAB &lt;- mean(result_n == 'HH'))
+```
+
+```
+## [1] 0.273
+```
+
+```r
+PA*PB
+```
+
+```
+## [1] 0.277092
+```
+
+The proportions look pretty close. 
+
+---
+
+&lt;small&gt;
+
+What about for a case where `\(A\)` and `\(B\)` are not independent? 
+
+--
+
+- Let's say `\(A\)` is still the event that we get a head on the first coin flip; `\(A = \{HT, HH\}\)`. 
+
+- But event `\(B\)` is now the event that we get a head on both coin flips; `\(B = \{HH\}\)`. 
+
+- `\(AB\)` is the intersection of these two sets, which is just `\(AB = \{HH\}\)`. 
+
+
+```r
+(observed_props &lt;- prop.table(table(result_n)))
+```
+
+```
+## result_n
+##    HH    HT    TH    TT 
+## 0.273 0.264 0.243 0.220
+```
+
+--
+
+
+```r
+(PA &lt;- mean(result_n == 'HT' | result_n == 'HH'))
+```
+
+```
+## [1] 0.537
+```
+
+--
+
+
+```r
+(PB &lt;- mean(result_n == 'HH'))
+```
+
+```
+## [1] 0.273
+```
+
+--
+
+
+```r
+(PAB &lt;- mean(result_n == 'HH'))
+```
+
+```
+## [1] 0.273
+```
+
+```r
+PA*PB
+```
+
+```
+## [1] 0.146601
+```
+
+The proportions are then quite different. 
+
+---
+
+# Conditional probability
+
+If `\(\textrm{P}(B)&gt;0\)`, the *conditional probability* of an event `\(A\)` occurring, given event `\(B\)` has occurred is:
+
+$$
+\textrm{P}(A|B) = \frac{\textrm{P}(A B)}{\textrm{P}(B)}
+$$
+--
+This can also be read as, out of all of the times event `\(B\)` occurs, how many times does event `\(A\)` also occur?
+
+---
+
+For our coin flip example, we'll stick with:
+- `\(A\)` is  the event that we get a head on the first coin flip; `\(A = \{HT, HH\}\)`. 
+- `\(B\)` is the event that we get a head on the both coin flips; `\(B = \{HH\}\)`. 
+- `\(A  B\)` is `\(\{HH\}\)`
+
+--
+
+$$
+`\begin{align}
+\textrm{P}(A |B)&amp; = \frac{\textrm{P}(A B)}{\textrm{P}(B)}\\\
+&amp; = \frac{\textrm{P}(\{ HH \})}{\textrm{P}(\{ HH \})}\\\
+&amp; = 1
+\end{align}`
+$$
+
+--
+
+What is `\(\textrm{P}(B |A)\)`?
+
+---
+
+## Bayes Rule
+
+A useful theorem to return to is *Bayes Rule*
+
+$$
+\textrm{P}(A|B) = \frac{\textrm{P}(B|A)\textrm{P}(A)}{\textrm{P}(B)}
+$$
+
+--
+Why is Bayes rule so useful? 
+--
+It basically tells us how we update probability based on observed data. 
+
+---
+&lt;small&gt;
+
+## Bayes Rule
+
+Example: Suppose everyone in the University of Chicago community is given a new rapid test for COVID. 
+
+- We are concerned with *false negatives*, when we get a negative test for a person who actually *is* infected.
+- And *false positives*, when we get a positive test for a person who *is not* infected.
+
+---
+&lt;small&gt;
+
+## Bayes Rule
+
+
+
+Example: Suppose everyone in the University of Chicago community is given a new rapid test for COVID. 
+
+A student gets a positive test back. What is the probability that they have COVID?
+
+--
+
+- Doctors know that the probability of having COVID is 3% in this population : `\(\textrm{P}(A)\)` 
+
+```r
+PA &lt;- 0.03
+```
+--
+- The overall rate of positive tests is 5% : `\(\textrm{P}(B)\)` 
+
+```r
+PB &lt;- 0.05
+```
+--
+- If you have COVID, your test will turn up positive 95% of the time. : `\(\textrm{P}(B|A)\)` 
+
+```r
+PB_if_A &lt;- 0.95
+```
+
+
+--
+
+$$
+`\begin{align*}
+\textrm{P}(A|B) &amp; = \frac{\textrm{P}(B|A)\textrm{P}(A)}{\textrm{P}(B)}
+\end{align*}`
+$$
+
+--
+
+
+```r
+( PB_if_A * PA )/PB
+```
+
+```
+## [1] 0.57
+```
+
+
+---
+## Prosecutor's fallacy
+
+$$
+\textrm{P}(A|B)\overset{?}= \textrm{P}(B|A)
+$$
+--
+
+As a general rule, we cannot assume the conditional probability of `\(A\)` given `\(B\)` is the same as the probability of `\(B\)` given `\(A\)`
+
+--
+- In a court case, the probability that a person is guilty given that we see a DNA match is NOT the same as the probability of a DNA match given  that they are guilty.  
+
+--
+
+- This fallacy often occurs when we observe evidence that we are very unlikely to see among innocent people, and very likely to observe among guilty people
+
+--
+
+- But the overall number of innocent people in the population is very large, so the number of false positives is much higher than the number of true positives
+
+---
+
+### Why thinking about conditional probability is so important in social science research
+
+"20% of people hospitalized with COVID-19 are vaccinated"
+
+--
+
+Does this tell us that vaccines aren't very effective?
+
+--
+
+Some things we should think about:
+- What percentage of the population in areas served by hospitals are vaccinated?
+- Are people who are vaccinated at higher risk for breakthrough cases? Or more likely to be hospitalized? Are they older, or have pre-existing conditions?
+
+
+
+---
+
+### Why thinking about conditional probability is so important in social science research
+
+
+
+What data do you need to answer the question: "Do white officers shoot minority citizens at a higher rate than non-white officers?"
+
+---
+
+### Why thinking about conditional probability is so important in social science research
+
+![Johnson et al. PNAS](slides_31_files/johnson-et-al-PNAS.png)
+- In a 2020 paper, Johnson and co-authors evaluated the relationship between race of victims shot by police, and the characteristics of the police shooters
+
+--
+
+- The authors claim, "White officers are not more likely to shoot minority civilians than non-White officers"--and the paper has been used in congressional testimony to support the claim that diversity in police forces would not be beneficial in reducing bias in officer-involved shootings
+
+--
+
+- Their database only has data on fatal shootings--not on cases where people were NOT shot. 
+- Their results report "whether a person fatally shot was more likely to be Black (or Hispanic) than White" conditional on the race of the officer involved
+
+--
+
+- Does this address original claim?
+
+---
+"White officers are not more likely to shoot minority civilians than non-White officers"
+
+$$
+`\begin{align}
+\textrm{P}(\text{shot} | \text{White officer, minority civilian}) -\\\
+\textrm{P}(\text{shot} | \text{Minority officer, minority civilian})
+\end{align}`
+$$
+
+What data are we missing to address this question?
+
+--
+
+- Dean Knox &amp; Jonathan Mummolo wrote a letter critiquing tge original article, based on the authors' failure to appropriately apply Bayes Rule;
+- The article was eventually retracted
+
+--
+
+- (It's a bit more complicated than that, but know your conditional probability when thinking about difficult subjects!)
+
+
+
+---
+## Some reference texts
+
+1. Aronow, P., &amp; Miller, B. (2019). Foundations of Agnostic Statistics. Cambridge: Cambridge University Press. Chapter 1. Probability Theory. 
+1. Wasserman, L. (2004). All of Statistics: A Concise Course in Statistical Inference. New York: Springer. Chapter 1. Probability Theory and Chapter 2. Random Variables. 
+1. Hernán MA, Robins JM (2020). Causal Inference: What If. Boca Raton: Chapman &amp; Hall/CRC.
+
+---
+
+name: event_space
+
+Flipping two coins event space:
+
+
+`$$\begin{align}
+S &amp; = \{\emptyset, \\
+&amp;\{HH\}, \{HT\},\{TH\}, \{TT\},\\
+&amp;\{HH, HT\}, \{HH, TH\},\{HH, TT\}, \{HT, TH\}, \{HT, TT\}, \{TH, TT\}\\
+&amp; \{HH, HT, TH\}, \{HH, HT, TT\}, \{HH TH, TT\}, \{HT, TH, TT\},\\
+&amp;\{HH, HT, TH, TT\} \}
+\end{align}$$`
+
+[[Back to terms]](#terms)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "atelier-lakeside-light",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
