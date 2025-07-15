@@ -4,27 +4,31 @@ title: "Teaching"
 date:   2025-07-15
 ---
 
-### Graduate courses
+## Graduate courses
 
-**Advanced Topics in Causal Inference: Causal Inference & Machine Learning (PLSC 40601)**
-University of Chicago — Spring 2023, 2024
-*Course website*: [https://github.com/UChicago-pol-methods/plsc-40601-CI-ML](https://github.com/UChicago-pol-methods/plsc-40601-CI-ML)
+#### **Advanced Topics in Causal Inference: Causal Inference & Machine Learning (PLSC 40601)**
 
-**Lab & Field Experiments in Comparative Politics and Policy (PLSC 48110/28110)**
-University of Chicago — Winter 2023, 2024
-*Syllabus*: [Google Doc](https://docs.google.com/document/d/1rP35xUjv5yG_3O_kjvSFSWJbrn52myI_LdM4LQRM4iA/edit?usp=sharing)
+*Course website*: [https://github.com/UChicago-pol-methods/plsc-40601-CI-ML](https://github.com/UChicago-pol-methods/plsc-40601-CI-ML){:target="_blank"}
 
-### Undergraduate courses
 
-**Introduction to Quantitative Social Science (PLSC 30500)** — with Andy Eggers
-University of Chicago — Fall 2021, 2022
-*Course website*: [https://github.com/UChicago-pol-methods/IntroQSS-F22](https://github.com/UChicago-pol-methods/IntroQSS-F22)
+#### **Lab & Field Experiments in Comparative Politics and Policy (PLSC 48110/28110)**
 
-**Social Science Inquiry II (SOSC 13200)**
-University of Chicago — Winter 2022, 2023, 2024
-*Course website*: [https://github.com/UChicago-pol-methods/SOSC13200-W24](https://github.com/UChicago-pol-methods/SOSC13200-W24)
+[Syllabus](https://docs.google.com/document/d/1rP35xUjv5yG_3O_kjvSFSWJbrn52myI_LdM4LQRM4iA/edit?usp=sharing){:target="_blank"}
 
-**Social Science Inquiry III (SOSC 13300)**
-University of Chicago — Spring 2024
-*Course website*: [https://github.com/UChicago-pol-methods/SOSC13300-W24](https://github.com/UChicago-pol-methods/SOSC13300-W24)
+
+## Undergraduate courses
+
+#### **Introduction to Quantitative Social Science (PLSC 30500)** — with Andy Eggers
+
+*Course website*: [https://github.com/UChicago-pol-methods/IntroQSS-F22](https://github.com/UChicago-pol-methods/IntroQSS-F22){:target="_blank"}
+
+
+#### **Social Science Inquiry II (SOSC 13200)**
+
+*Course website*: [https://github.com/UChicago-pol-methods/SOSC13200-W24](https://github.com/UChicago-pol-methods/SOSC13200-W24){:target="_blank"}
+
+
+#### **Social Science Inquiry III (SOSC 13300)**
+
+*Course website*: [https://github.com/UChicago-pol-methods/SOSC13300-W24](https://github.com/UChicago-pol-methods/SOSC13300-W24){:target="_blank"}
 

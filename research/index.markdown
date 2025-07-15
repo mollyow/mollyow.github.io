@@ -64,7 +64,7 @@ Recognizing that many scholars seek to assess performance relative to a control 
 
 ----
 
-# Estimands and identification
+# Estimands, identification, and statistical testing. 
 
 ## On the foundations of the design-based approach. 
 
@@ -104,7 +104,7 @@ When the Stable Unit Treatment Value Assumption (SUTVA) is violated and there is
 
 ----
 
-## Understanding Ding's apparent paradox
+## Understanding Ding's apparent paradox.
 
 *Joint work with [P.M. Aronow](https://pmaronow.github.io/){:target="_blank"}*. 
 Published in *Statistical Science*. 
@@ -227,6 +227,7 @@ For illustration, several functions for simulating non-contextual and contextual
 [CRAN](https://cloud.r-project.org/web/packages/banditsCI/index.html){:target="_blank"} /
 [source code](https://github.com/UChicago-pol-methods/banditsCI/){:target="_blank"}
 
+---
 
 ## Adaptive experimentation tutorial
 
