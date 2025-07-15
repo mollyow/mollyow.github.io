@@ -7,11 +7,25 @@ date:   2024-05-05
 ### Selected projects
 
 ----
-## Does Asking Questions Boost Engagement? Three Health Mes-
-saging Experiments in the US and Ghana.
-url: [NBER pre-print](https://www.nber.org/system/files/working_papers/w33294/w33294.pdf)
-Overview of Ghana component: [www.poverty-action.org](https://www.poverty-action.org/study/impact-quiz-style-information-campaign-covid-19-prevention-ghana). \\
-Pre-registrations: [1](https://aspredicted.org/xp8c-v66w.pdf); [2](https://aspredicted.org/zrpp-9hqp.pdf)
+## Gnostic notes on temporal validity. 
+*Joint work with [Austin Jang](https://austinjang.github.io/){:target="_blank"}, [Serena Wang](https://serenalwang.com/){:target="_blank"}, and [P.M. Aronow](https://pmaronow.github.io/){:target="_blank"}*
+**Research & Politics**. 
+
+Kevin Munger argues that, when an agnostic approach is applied to social scientific inquiry, the goal of prediction to new settings is generically impossible. We aim to situate Munger’s critique in a broader scientific and philosophical literature and to point to ways in which *gnosis* can and, in some circumstances, must be used to facilitate the accumulation of knowledge. We question some of the premises of Munger’s arguments, such as the definition of statistical agnosticism and the characterization of knowledge. We further emphasize the important role of microfoundations and particularism in the social sciences. We assert that Munger’s conclusions may be overly pessimistic as they relate to practice in the field.
+
+[paper](https://doi.org/10.1177/20531680241307942){:target="_blank"}
+
+## Gnostic notes on temporal validity. 
+*Joint work with [Austin Jang](https://austinjang.github.io/){:target="_blank"}, [Serena Wang](https://serenalwang.com/){:target="_blank"}, and [P.M. Aronow](https://pmaronow.github.io/){:target="_blank"}*
+
+Kevin Munger argues that, when an agnostic approach is applied to social scientific inquiry, the goal of prediction to new settings is generically impossible. We aim to situate Munger’s critique in a broader scientific and philosophical literature and to point to ways in which *gnosis* can and, in some circumstances, must be used to facilitate the accumulation of knowledge. We question some of the premises of Munger’s arguments, such as the definition of statistical agnosticism and the characterization of knowledge. We further emphasize the important role of microfoundations and particularism in the social sciences. We assert that Munger’s conclusions may be overly pessimistic as they relate to practice in the field.
+
+[paper](https://doi.org/10.1177/20531680241307942){:target="_blank"}
+
+## Does Asking Questions Boost Engagement? Three Health Messaging Experiments in the US and Ghana.
+
+*Joint work with [Erika Kirgios](https://www.erikakirgios.com/){:target="_blank"}, [Susan Athey](https://athey.people.stanford.edu/){:target="_blank"}, [Angela L. Duckworth](https://angeladuckworth.com/){:target="_blank"}, [Dean Karlan](https://deankarlan.com/){:target="_blank"}, [Michael Luca](https://carey.jhu.edu/faculty/michael-luca-phd){:target="_blank"}, [Katherine Milkman](https://www.katymilkman.com/){:target="_blank"}
+Forthcoming at **Management Science**. 
 
 Effective information sharing is critical for the success of organizations and governments. Because
 information that is easy to access is more likely to be adopted, leaders often minimize friction in
@@ -33,9 +47,14 @@ attrition challenges) Q&A-style ads generated 9-11% more unique clicks to the CD
 dollar spent than ads that directly stated information about vaccines (p<0.001). We speculate that
 Q&A-style information delivery may stimulate curiosity, driving its benefits.
 
+[paper](https://www.nber.org/system/files/working_papers/w33294/w33294.pdf){:target="_blank"}
+[Ghana component project page](https://www.poverty-action.org/study/impact-quiz-style-information-campaign-covid-19-prevention-ghana){:target="_blank"}
+[preanalysis plan (1)](https://aspredicted.org/xp8c-v66w.pdf){:target="_blank"}
+[preanalysis plan (2)](https://aspredicted.org/zrpp-9hqp.pdf){:target="_blank"}
+
 ## Conversations with a concern-addressing chatbot increase COVID-19 vaccination intentions among social media users in Kenya and Nigeria 
 
-*Joint work with [Leah Rosenzweig](https://leahrrosenzweig.com/){:target="_blank"}.*
+*Joint work with [Leah Rosenzweig](https://leahrrosenzweig.com/){:target="_blank"}.* Forthcoming at **Journal of Politics**. 
 
 During mass vaccination campaigns, social media platforms can facilitate the dissemination of public health information but may also contribute to vaccine hesitancy by serving as avehicle for the spread of false and misleading information. 
 Although talking with health professionals is an important avenue to address individuals’ concerns, one-on-one conversationswith healthcare providers are challenging to scale. 
