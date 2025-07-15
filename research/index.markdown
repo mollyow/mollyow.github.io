@@ -4,7 +4,11 @@ title: "Research"
 date:   2024-05-05
 ---
 
-### Selected projects
+* [Adaptive experiments](#adaptive-experiments)
+* [Estimands and identification](#estimands-and-identification)
+* [Other messaging experiments](#other-messaging-experiments)
+* [Tutorials and code](#tutorials-and-code)
+
 ----
 # Adaptive experiments
 
@@ -158,7 +162,7 @@ Q&A-style information delivery may stimulate curiosity, driving its benefits.
 *Joint work with Will Gruen, Carter Herron, Kaden Hyatt; Max Buford, Kevin Davis, Diego Fonseca,  Mushkie Gurevich, Tiffanie Huang,  Rocio Jerez, Quinn Liu, Obi Obetta, Miguel Orellana, James Passmore, Jack Qiu, Julian Rapaport, Iñigo Sanchez-Asiain Domenech, Fernando Sandoval, Jose A. Tandoc, and Ravi Yalamanchili.* 
 
 [pre-analysis plan](https://osf.io/2ztxe){:target="_blank"} / 
-[project repository]https://github.com/UChicago-pol-methods/ssi3-data-analysis){:target="_blank"} 
+[project repository](https://github.com/UChicago-pol-methods/ssi3-data-analysis){:target="_blank"} 
 
 How should climate policy be framed to maximize public support? We evaluate the effects of five distinct message frames—scientific, religious, moral, and two economic (efficiency and equity)—on support for climate change policy using a randomized experiment with over 2,300 U.S. respondents. Moving beyond pairwise frame comparisons, we adopt a policy learning approach that identifies the most effective frame using cross-validated sample splitting, thereby avoiding selective inference. We find that the economic efficiency frame consistently yields the largest gains in policy support, outperforming both the control condition and all alternative frames. While the effects of personalized frame assignment were modest and not significantly different from assigning the best overall frame, we find consistent positive effects of the efficiency frame across partisan subgroups. Our findings offer methodological and substantive contributions: we provide a design for learning and validating optimal treatments in experimental framing studies, and we offer practical guidance for advocates seeking to increase support for climate action. 
 
@@ -183,6 +187,7 @@ Scripts used in this application are based on those used by transgender allies i
 To personalize messaging, the conversational agent uses natural language processing to detect conversational topics, and shares relevant pre-scripted messages of information and third-person experiences, encouraging respondents to engage in perspective-taking with respect to an outgroup. 
 This study demonstrates the potential of automated social media messaging for deep canvassing, with possible applications by governments, public health agencies, and political organizations. 
 
+---
 
 ## Opportunities to govern: How to increase the supply of moderate and competent candidates. 
 
@@ -221,7 +226,7 @@ For illustration, several functions for simulating non-contextual and contextual
 
 [site](https://uchicago-pol-methods.github.io/banditsCI/){:target="_blank"}/
 [CRAN](https://cloud.r-project.org/web/packages/banditsCI/index.html){:target="_blank"} /
-[source code](https://github.com/UChicago-pol-methods/banditsCI/){:target="_blank"} /
+[source code](https://github.com/UChicago-pol-methods/banditsCI/){:target="_blank"}
 
 
 ## Adaptive experimentation tutorial
@@ -249,7 +254,4 @@ in terms of variance, so we want to use some form of regularization.
 degree of complexity of interactions.
 
 [tutorial](https://github.com/mollyow/shrinkage-tutorial/blob/master/tutorial.md){:target="_blank"}
-
----
-
 
