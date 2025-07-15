@@ -4,10 +4,10 @@ title: "Research"
 date:   2025-07-15
 ---
 
-* [Adaptive experiments](#adaptive-experiments)
-* [Estimands and identification](#estimands-and-identification)
-* [Other messaging experiments](#other-messaging-experiments)
-* [Tutorials and code](#tutorials-and-code)
+<h2><a href="#adaptive-experiments">Adaptive experiments</a></h2>
+<h2><a href="#estimands-and-identification">Estimands and identification</a></h2>
+<h2><a href="#other-messaging-experiments">Other messaging experiments</a></h2>
+<h2><a href="#tutorials-and-code">Tutorials and code</a></h2>
 
 ----
 # Adaptive experiments
