@@ -8,10 +8,13 @@ date:   2024-05-05
 ----
 # Adaptive experiments
 
-## Conversations with a concern-addressing chatbot increase COVID-19 vaccination intentions among social media users in Kenya and Nigeria 
+## Conversations with a concern-addressing chatbot increase COVID-19 vaccination intentions among social media users in Kenya and Nigeria. 
 
 *Joint work with [Leah Rosenzweig](https://leahrrosenzweig.com/){:target="_blank"}.* 
 Forthcoming at *Journal of Politics*. 
+
+[paper](https://osf.io/preprints/osf/mgyxu){:target="_blank"} /
+[preanalysis plan](https://osf.io/mxr8n){:target="_blank"}
 
 During mass vaccination campaigns, social media platforms can facilitate the dissemination of public health information but may also contribute to vaccine hesitancy by serving as avehicle for the spread of false and misleading information. 
 Although talking with health professionals is an important avenue to address individuals’ concerns, one-on-one conversationswith healthcare providers are challenging to scale. 
@@ -22,14 +25,14 @@ We find that the concern-addressing chatbot increases COVID-19 vaccine intention
 Among the 22,052 respondents in our evaluation sample, who at the time of the survey in early 2022 had not yet received a single COVID-19 vaccine, we observe the largest treatment effects among those most hesitant at baseline. 
 With advertising costs as low as $0.21 per person engaged and $4.33 per person influenced, policymakers may want to consider using personalized messaging on digital platforms to quickly and cheaply reach many people to encourage compliance with public health programs during disease outbreaks. 
 
-[paper](https://osf.io/preprints/osf/mgyxu){:target="_blank"}
-[preanalysis plan](https://osf.io/mxr8n){:target="_blank"}
-
 ----
-## Battling the coronavirus ‘infodemic’ among social media users in Kenya and Nigeria 
+## Battling the coronavirus ‘infodemic’ among social media users in Kenya and Nigeria. 
 
 *Joint work with [Leah Rosenzweig](https://leahrrosenzweig.com/){:target="_blank"} and [Susan Athey](https://athey.people.stanford.edu/){:target="_blank"}.*
 Published in *Nature Human Behaviour*. 
+
+[paper](https://doi.org/10.1038/s41562-023-01810-7){:target="_blank"} /
+[preanalysis plan](https://osf.io/cqu4w/){:target="_blank"}
 
 How can we induce social media users to be discerning when sharing information during a pandemic? 
 An experiment on Facebook Messenger with users from Kenya (n = 7,498) and Nigeria (n = 7,794) tested interventions designed to decrease intentions to share COVID-19 misinformation without decreasing intentions to share factual posts. 
@@ -39,13 +42,13 @@ We precisely estimate null effects from warning flags and related article sugges
 However, nudges to consider the accuracy of information reduced misinformation sharing relative to control by 4.9% (estimate = −2.3 percentage points, 95% CI = [−4.2, −0.35]). 
 Such low-cost scalable interventions may improve the quality of information circulating online.
 
-[paper](https://doi.org/10.1038/s41562-023-01810-7){:target="_blank"}
-[preanalysis plan](https://osf.io/cqu4w/){:target="_blank"}
-
 ----
-## Adaptive experimental design: Prospects and applications in political science
+## Adaptive experimental design: Prospects and applications in political science.
+
 *Joint work with [Alexander Coppock](https://alexandercoppock.com/){:target="_blank"} and [Donald P. Green](https://sites.google.com/site/donaldpgreen/){:target="_blank"}.*
 Published in the *American Journal of Political Science.*
+
+[paper](https://doi.org/10.1111/ajps.12597){:target="_blank"}
 
 Experimental researchers in political science frequently face the problem of inferring which of several treatment arms is most effective. 
 They may also seek to estimate mean outcomes under that arm, construct confidence intervals, and test hypotheses. 
@@ -54,14 +57,16 @@ However, a growing statistical literature suggests that adaptive experimental de
 Using simulations and empirical applications, we explore the conditions under which such designs hasten the discovery of superior treatments and improve the precision with which their effects are estimated. 
 Recognizing that many scholars seek to assess performance relative to a control condition, we also develop and implement a novel adaptive algorithm that seeks to maximize the precision with which the largest treatment effect is estimated.
 
-[paper](https://doi.org/10.1111/ajps.12597){:target="_blank"}
 
 ----
 
 # Estimands and identification
 
-## On the Foundations of the Design-Based Approach. 
+## On the foundations of the design-based approach. 
+
 *Joint work with [Austin Jang](https://austinjang.github.io/){:target="_blank"} and [P.M. Aronow](https://pmaronow.github.io/){:target="_blank"}*. 
+
+[paper](https://arxiv.org/abs/2505.10519){:target="_blank"}
 
 The design-based paradigm may be adopted in causal inference and survey sampling when we assume Rubin's stable unit treatment value assumption (SUTVA) or impose similar frameworks.
 While often taken for granted, such assumptions entail strong claims about the data generating process. 
@@ -72,20 +77,20 @@ We then reconstruct the standard paradigm, reconsidering SUTVA at the end rather
 Despite its similarity to SUTVA, we demonstrate the practical insufficiency of NURVA for identifying substantively interesting quantities. 
 In so doing, we provide clarity on the nature and importance of SUTVA for applied research.
 
-[paper](https://arxiv.org/abs/2505.10519){:target="_blank"}
 
 ----
 ## Gnostic notes on temporal validity. 
-*Joint work with [Austin Jang](https://austinjang.github.io/){:target="_blank"}, [Serena Wang](https://serenalwang.com/){:target="_blank"}, and [P.M. Aronow](https://pmaronow.github.io/){:target="_blank"}*. 
-Published in **Research & Politics**. 
 
-Kevin Munger argues that, when an agnostic approach is applied to social scientific inquiry, the goal of prediction to new settings is generically impossible. We aim to situate Munger’s critique in a broader scientific and philosophical literature and to point to ways in which *gnosis* can and, in some circumstances, must be used to facilitate the accumulation of knowledge. We question some of the premises of Munger’s arguments, such as the definition of statistical agnosticism and the characterization of knowledge. We further emphasize the important role of microfoundations and particularism in the social sciences. We assert that Munger’s conclusions may be overly pessimistic as they relate to practice in the field.
+*Joint work with [Austin Jang](https://austinjang.github.io/){:target="_blank"}, [Serena Wang](https://serenalwang.com/){:target="_blank"}, and [P.M. Aronow](https://pmaronow.github.io/){:target="_blank"}*. 
+Published in *Research & Politics*. 
 
 [paper](https://doi.org/10.1177/20531680241307942){:target="_blank"}
 
+Kevin Munger argues that, when an agnostic approach is applied to social scientific inquiry, the goal of prediction to new settings is generically impossible. We aim to situate Munger’s critique in a broader scientific and philosophical literature and to point to ways in which *gnosis* can and, in some circumstances, must be used to facilitate the accumulation of knowledge. We question some of the premises of Munger’s arguments, such as the definition of statistical agnosticism and the characterization of knowledge. We further emphasize the important role of microfoundations and particularism in the social sciences. We assert that Munger’s conclusions may be overly pessimistic as they relate to practice in the field.
+
 ----
 
-## Experimentation for homogeneous policy change
+## Experimentation for homogeneous policy change.
 
 *Joint work with [Drew Dimmery](https://ddimmery.com/){:target="_blank"}.*
 
@@ -97,7 +102,7 @@ When the Stable Unit Treatment Value Assumption (SUTVA) is violated and there is
 
 ## Understanding Ding's apparent paradox
 
-* Joint work with [P.M. Aronow](https://pmaronow.github.io/){:target="_blank"}*. 
+*Joint work with [P.M. Aronow](https://pmaronow.github.io/){:target="_blank"}*. 
 Published in *Statistical Science*. 
 
 [paper](https://www.jstor.org/stable/26408292){:target="_blank"}
@@ -121,9 +126,9 @@ Combining (i) and (ii), we see that Ding's (2017) apparent paradox follows from 
 *Joint work with [Erika Kirgios](https://www.erikakirgios.com/){:target="_blank"}, [Susan Athey](https://athey.people.stanford.edu/){:target="_blank"}, [Angela L. Duckworth](https://angeladuckworth.com/){:target="_blank"}, [Dean Karlan](https://deankarlan.com/){:target="_blank"}, [Michael Luca](https://carey.jhu.edu/faculty/michael-luca-phd){:target="_blank"}, [Katherine Milkman](https://www.katymilkman.com/){:target="_blank"}.*
 Forthcoming at *Management Science*. 
 
-[paper](https://www.nber.org/system/files/working_papers/w33294/w33294.pdf){:target="_blank"}
-[Ghana component project page](https://www.poverty-action.org/study/impact-quiz-style-information-campaign-covid-19-prevention-ghana){:target="_blank"}
-[preanalysis plan (1)](https://aspredicted.org/xp8c-v66w.pdf){:target="_blank"}
+[paper](https://www.nber.org/system/files/working_papers/w33294/w33294.pdf){:target="_blank"} /
+[Ghana component project page](https://www.poverty-action.org/study/impact-quiz-style-information-campaign-covid-19-prevention-ghana){:target="_blank"} /
+[preanalysis plan (1)](https://aspredicted.org/xp8c-v66w.pdf){:target="_blank"} /
 [preanalysis plan (2)](https://aspredicted.org/zrpp-9hqp.pdf){:target="_blank"}
 
 Effective information sharing is critical for the success of organizations and governments. Because
@@ -152,8 +157,10 @@ Q&A-style information delivery may stimulate curiosity, driving its benefits.
 
 *Joint work with Will Gruen, Carter Herron, Kaden Hyatt; Max Buford, Kevin Davis, Diego Fonseca,  Mushkie Gurevich, Tiffanie Huang,  Rocio Jerez, Quinn Liu, Obi Obetta, Miguel Orellana, James Passmore, Jack Qiu, Julian Rapaport, Iñigo Sanchez-Asiain Domenech, Fernando Sandoval, Jose A. Tandoc, and Ravi Yalamanchili.* 
 
-How should climate policy be framed to maximize public support? We evaluate the effects of five distinct message frames—scientific, religious, moral, and two economic (efficiency and equity)—on support for climate change policy using a randomized experiment with over 2,300 U.S. respondents. Moving beyond pairwise frame comparisons, we adopt a policy learning approach that identifies the most effective frame using cross-validated sample splitting, thereby avoiding selective inference. We find that the economic efficiency frame consistently yields the largest gains in policy support, outperforming both the control condition and all alternative frames. While the effects of personalized frame assignment were modest and not significantly different from assigning the best overall frame, we find consistent positive effects of the efficiency frame across partisan subgroups. Our findings offer methodological and substantive contributions: we provide a design for learning and validating optimal treatments in experimental framing studies, and we offer practical guidance for advocates seeking to increase support for climate action. 
+[pre-analysis plan](https://osf.io/2ztxe){:target="_blank"} / 
+[project repository]https://github.com/UChicago-pol-methods/ssi3-data-analysis){:target="_blank"} 
 
+How should climate policy be framed to maximize public support? We evaluate the effects of five distinct message frames—scientific, religious, moral, and two economic (efficiency and equity)—on support for climate change policy using a randomized experiment with over 2,300 U.S. respondents. Moving beyond pairwise frame comparisons, we adopt a policy learning approach that identifies the most effective frame using cross-validated sample splitting, thereby avoiding selective inference. We find that the economic efficiency frame consistently yields the largest gains in policy support, outperforming both the control condition and all alternative frames. While the effects of personalized frame assignment were modest and not significantly different from assigning the best overall frame, we find consistent positive effects of the efficiency frame across partisan subgroups. Our findings offer methodological and substantive contributions: we provide a design for learning and validating optimal treatments in experimental framing studies, and we offer practical guidance for advocates seeking to increase support for climate action. 
 
 ----
 
@@ -165,10 +172,10 @@ How should climate policy be framed to maximize public support? We evaluate the 
 [Nguyên Phong Hoàng](https://homepage.np-tokumei.net/){:target="_blank"}, and
 [Sudhamshu Hosamane](https://www.sudhamshu.info/){:target="_blank"}.*
 
-[pre-analysis plan](osf.io/dtm4g){:target="_blank"}
+[pre-analysis plan](osf.io/dtm4g){:target="_blank"} /
 [project page](https://datascience.uchicago.edu/research/facebook-messenger-chatbot-for-surveys-and-intervention-testing/){:target="_blank"}
 
-This study tests use of a social media conversational agent for canvassing on the topic of anti-transgender prejudice, replicating and benchmarking treatment effects to a door-to-door canvassing effort conducted by \cite{broockman2016durably}. 
+This study tests use of a social media conversational agent for canvassing on the topic of anti-transgender prejudice, replicating and benchmarking treatment effects to a door-to-door canvassing effort conducted by Broockman and Kalla (2016). 
 In-person deep canvassing is the gold standard for durably changing attitudes on polarizing topics. However, door-to-door canvassing is costly and time-consuming, and there are many populations may not be feasibly reached in this manner. 
 Campaigns are already conducting outreach using digital tools, including text messages and social media accounts.  
 If appropriately trained agents messaging over social media can achieve a fraction of the effect of in-person canvassing, canvassing may be scaled up to achieve large overall impacts at lower costs. 
@@ -183,7 +190,7 @@ This study demonstrates the potential of automated social media messaging for de
 [Anthony Fowler](https://voices.uchicago.edu/fowler/){:target="_blank"}, and
 [William Howell](https://politicalscience.jhu.edu/directory/william-howell/){:target="_blank"}.* 
 
-[preanalysis plan (1)](https://osf.io/ft8pq){:target="_blank"}
+[preanalysis plan](https://osf.io/ft8pq){:target="_blank"}
 
 The state of American politics would be generally improved, many argue, if more
 moderate and more qualified people served in government. In this paper, we investigate what
@@ -212,9 +219,9 @@ The code in this package is directly adapted from the original python code for t
 
 For illustration, several functions for simulating non-contextual and contextual adaptive experiments using Thompson sampling are also supplied. 
 
-[site](https://uchicago-pol-methods.github.io/banditsCI/){:target="_blank"}
-[CRAN](https://cloud.r-project.org/web/packages/banditsCI/index.html){:target="_blank"} 
-[source code](https://github.com/UChicago-pol-methods/banditsCI/){:target="_blank"}
+[site](https://uchicago-pol-methods.github.io/banditsCI/){:target="_blank"}/
+[CRAN](https://cloud.r-project.org/web/packages/banditsCI/index.html){:target="_blank"} /
+[source code](https://github.com/UChicago-pol-methods/banditsCI/){:target="_blank"} /
 
 
 ## Adaptive experimentation tutorial
