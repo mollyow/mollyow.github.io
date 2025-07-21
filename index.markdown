@@ -2,6 +2,7 @@
 layout: design-mow
 title: "Home"
 date:   2025-07-15
+show_name: true
 ---
 <img style="float: left; width: 300px; margin: 0 20px 10px 0" src="/assets/molly_brick_2021.jpg" alt="photo" />
 

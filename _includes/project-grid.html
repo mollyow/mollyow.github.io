@@ -1,0 +1,203 @@
+<style>
+  .research-container { display: flex; gap: 2rem; }
+  .filter-sidebar { flex: 0 0 200px; border-right: 1px solid #ddd; }
+  .filter-sidebar h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+  .filter-sidebar ul { list-style: none; padding: 0; }
+  .filter-sidebar li { cursor: pointer; margin: 0.25rem 0; color: #2a7ae2; font-weight: 500; }
+  .filter-sidebar li.active { font-weight: bold; text-decoration: underline; }
+  .research-list { flex: 1; }
+  .project-card { display: flex; gap: 1.5rem; align-items: flex-start; margin-bottom: 2rem; }
+  .project-card.hidden { display: none; }
+  .project-img { margin-top: 6rem; flex: 0 0 200px; }
+  .project-img img { width: 200px; height: auto; border-radius: 6px; }
+  .project-details { flex: 1; min-width: 200px; }
+  .tag {
+    display: inline-block;
+    background: #f0f0f0;
+    color: #444;
+    padding: 3px 7px;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  .tag:hover {
+    background-color: #ccc;
+    color: #000;
+  }
+  .project-links { margin-top: 0.5rem; }
+  .project-link-btn {
+    display: inline-block;
+    margin: 0.25rem 0.25rem 0 0;
+    padding: 6px 12px;
+    border: 2px solid #2a7ae2;
+    background-color: transparent;
+    color: #2a7ae2;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+  }
+  .project-link-btn:hover {
+    background-color: #2a7ae2;
+    color: #fff;
+  }
+  .project-card-inner { display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: nowrap; }
+  .project-summary {
+    margin-bottom: 0.5rem;
+  }
+  .summary-full {
+    display: none;
+  }
+  .toggle-summary-btn {
+    background: none;
+    border: none;
+    color: #2a7ae2;
+    cursor: pointer;
+    font-size: 0.85rem;
+    padding: 0;
+    margin-top: 0.2rem;
+  }
+  .toggle-summary-btn:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<div class="research-container">
+  <aside class="filter-sidebar">
+    <h3>Filter by Tag</h3>
+    <ul id="tag-filter">
+      <li data-tag="all" class="active">All</li>
+      {% assign all_tags = "" | split: "" %}
+      {% for project in site.pages %}
+        {% if project.path contains 'projects/' and project.type == page.type and project.tags %}
+          {% assign all_tags = all_tags | concat: project.tags %}
+        {% endif %}
+      {% endfor %}
+      {% assign unique_tags = all_tags | uniq | sort %}
+      {% for tag in unique_tags %}
+        <li data-tag="{{ tag | slugify }}">{{ tag }}</li>
+      {% endfor %}
+    </ul>
+  </aside>
+
+  <div class="research-list" id="research-list">
+    {% assign sorted_projects = site.pages | where: "type", page.type %}
+    {% assign sorted_projects = sorted_projects | where_exp: "item", "item.path contains 'projects/'" %}
+    {% assign sorted_projects = sorted_projects | sort: "date" | reverse %}
+
+    {% for project in sorted_projects %}
+      {% assign slug = project.path | split: '/' | last | split: '.' | first %}
+      <div class="project-card {% for tag in project.tags %}tag-{{ tag | slugify }} {% endfor %}">
+        <div class="project-card-inner">
+          <div class="project-img">
+            <img src="{{ site.baseurl }}/assets/img/projects/{{ slug }}/featured.png" alt="{{ project.title }}" onerror="this.style.display='none';">
+          </div>
+          <div class="project-details">
+            <h2>{{ project.title }}</h2>
+
+            {% if project.authors %}
+              <p class="project-authors">
+                {% for author in project.authors %}
+                  {% if author contains '|' %}
+                    {% assign parts = author | split: '|' %}
+                    <a href="{{ parts[1] }}" target="_blank" rel="noopener">{{ parts[0] }}</a>{% unless forloop.last %}, {% endunless %}
+                  {% else %}
+                    {{ author }}{% unless forloop.last %}, {% endunless %}
+                  {% endif %}
+                {% endfor %}
+              </p>
+            {% endif %}
+
+            {% if project.publication %}
+              <p class="project-publication"><em>{{ project.publication }}</em></p>
+            {% endif %}
+
+            {% if project.summary %}
+              <div class="project-summary">
+                <div class="summary-text">
+                  <span class="summary-short">{{ project.summary | truncatewords: 25 | markdownify }}</span>
+                  <span class="summary-full">{{ project.summary | markdownify }}</span>
+                </div>
+                <button class="toggle-summary-btn">Read more</button>
+              </div>
+            {% endif %}
+
+            {% if project.tags %}
+              <div class="tags">
+                {% for tag in project.tags %}
+                  <span class="tag tag-chip" data-tag="{{ tag | slugify }}">{{ tag }}</span>
+                {% endfor %}
+              </div>
+            {% endif %}
+
+            {% if project.links %}
+              <div class="project-links">
+                {% for link in project.links %}
+                  <a class="project-link-btn" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.name }}</a>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Summary toggle
+  document.querySelectorAll('.toggle-summary-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const summaryContainer = btn.closest('.project-summary');
+      const short = summaryContainer.querySelector('.summary-short');
+      const full = summaryContainer.querySelector('.summary-full');
+
+      const isExpanded = full.style.display === 'inline';
+
+      if (isExpanded) {
+        full.style.display = 'none';
+        short.style.display = 'inline';
+        btn.textContent = 'Read more';
+      } else {
+        full.style.display = 'inline';
+        short.style.display = 'none';
+        btn.textContent = 'Show less';
+      }
+    });
+  });
+
+  // Tag filtering
+  function activateFilter(tagSlug) {
+    const allCards = document.querySelectorAll(".project-card");
+    const allSidebar = document.querySelectorAll("#tag-filter li");
+
+    allSidebar.forEach(i => i.classList.remove("active"));
+    document.querySelectorAll(`#tag-filter li[data-tag="${tagSlug}"]`).forEach(i => i.classList.add("active"));
+
+    allCards.forEach(card => {
+      if (tagSlug === "all") {
+        card.classList.remove("hidden");
+      } else {
+        card.classList.toggle("hidden", !card.classList.contains(`tag-${tagSlug}`));
+      }
+    });
+  }
+
+  document.querySelectorAll("#tag-filter li").forEach(item => {
+    item.addEventListener("click", () => {
+      activateFilter(item.getAttribute("data-tag"));
+    });
+  });
+
+  document.querySelectorAll(".tag-chip").forEach(chip => {
+    chip.addEventListener("click", () => {
+      activateFilter(chip.getAttribute("data-tag"));
+    });
+  });
+});
+</script>

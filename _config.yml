@@ -12,3 +12,12 @@ gems:
 
 # Build settings
 markdown: kramdown
+
+sass:
+  load_paths:
+    - css
+
+collections:
+  projects:
+    output: true
+
