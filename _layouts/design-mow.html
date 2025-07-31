@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 	<html lang="en">
 		<head>
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<title>Molly Offer-Westort: {{ page.title }}</title>
-			<link rel="icon"  type="image/png"    href="https://mollyow.github.io/assets/molly_brick_2021.jpg">
-			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Istok+Web">
+			<meta name="description" content="{{ site.description | default: 'Molly Offer-Westort - Assistant Professor of Political Science at The University of Chicago' }}">
+			<link rel="icon" type="image/png" href="https://mollyow.github.io/assets/molly_brick_2021.jpg">
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 			<link rel="stylesheet" type="text/css" href="/css/main.css">
-			
 		</head>
 		<body>
-			<nav>
+			<nav role="navigation" aria-label="Main navigation">
 	    		<ul>
-	        		<li><a href="/">Home</a></li>
-	        		<li><a href="/research">Research</a></li>
-	        		<li><a href="https://mollyow.github.io/assets/cv_MOW_2025.pdf">CV</a></li>
-	        		<li><a href="/teaching">Teaching</a></li>
-	        		<li><a href="/code">Tutorials/Code</a></li>
-	        		<!-- <li><a href="/contact">Contact</a></li> -->
+	        		<li><a href="/" {% if page.url == '/' %}class="active"{% endif %}>Home</a></li>
+	        		<li><a href="/research" {% if page.url contains 'research' %}class="active"{% endif %}>Research</a></li>
+	        		<li><a href="https://mollyow.github.io/assets/cv_MOW_2025.pdf" target="_blank" rel="noopener">CV</a></li>
+	        		<li><a href="/teaching" {% if page.url contains 'teaching' %}class="active"{% endif %}>Teaching</a></li>
+	        		<li><a href="/code" {% if page.url contains 'code' %}class="active"{% endif %}>Tutorials/Code</a></li>
+	        		<li>
+	        			<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+	        				<span class="sun-icon">☀️</span>
+	        				<span class="moon-icon">🌙</span>
+	        			</button>
+	        		</li>
 	    		</ul>
 			</nav>
-			{% if page.show_name %}
-            <h1>{{ site.author.name }}</h1>
-            {% endif %}
-			<div class="container">
-			
-			{{ content }}
-			
-			</div><!-- /.container -->
-			<footer>
+			<main class="container">
+				{% if page.show_name %}
+				<h1>{{ site.author.name }}</h1>
+				{% endif %}
+				{{ content }}
+			</main>
+			<footer role="contentinfo">
 	    		<ul>
-	        		<li><a href="mailto:mollyow@gmail.com">email</a></li>
-	        		<li><a href="https://github.com/mollyow">github.com/mollyow</a></li>
+	        		<li><a href="mailto:mollyow@gmail.com" aria-label="Email Molly Offer-Westort">Email</a></li>
+	        		<li><a href="https://github.com/mollyow" target="_blank" rel="noopener" aria-label="Molly's GitHub profile">GitHub</a></li>
 				</ul>
 			</footer>
 			
+			{% include dark-mode.html %}
 			{% include analytics.html %}
 		</body>
 	</html>

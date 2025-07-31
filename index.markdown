@@ -4,7 +4,10 @@ title: "Home"
 date:   2025-07-15
 show_name: true
 ---
-<img style="float: left; width: 300px; margin: 0 20px 10px 0" src="/assets/molly_brick_2021.jpg" alt="photo" />
+<div class="hero-section" markdown="1">
+<img class="profile-image" src="/assets/molly_brick_2021.jpg" alt="Molly Offer-Westort" />
+
+<div class="hero-content" markdown="1">
 
 I am an Assistant Professor in the [Department of Political Science at The University of Chicago](https://political-science.uchicago.edu/){:target="_blank"}. 
 I also have affiliations with the [Department of Statistics](https://stat.uchicago.edu/people/profile/molly-offer-westort/){:target="_blank"}, the [Committee on Data Science](https://codas.uchicago.edu/about/){:target="_blank"}, and the [PhD program in political economy](https://politicaleconomy.uchicago.edu/){:target="_blank"}. 
@@ -20,4 +23,7 @@ Previously, I was a post-doctoral fellow in [Susan Athey's](https://athey.people
 My PhD is from Yale, joint in Political Science and Statistics & Data Science; I have a Masters degree in Public Affairs from the Princeton School of Public and International Affairs; and my undergraduate degree is from Grinnell College. 
 
 After college, I spent a fellowship year in Lesotho, and two years in Madagascar as a Peace Corps volunteer. 
-Prior to my PhD, I worked on policy research for several years in West Africa with the World Bank and the United Nations.  
+Prior to my PhD, I worked on policy research for several years in West Africa with the World Bank and the United Nations.
+
+</div>
+</div>

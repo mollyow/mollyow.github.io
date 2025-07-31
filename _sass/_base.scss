@@ -15,14 +15,15 @@ dl, dd, ol, ul, figure {
  */
 body {
     font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
-    color: $text-color;
-    background-color: $background-color;
+    color: var(--text-color);
+    background-color: var(--background-color);
     -webkit-text-size-adjust: 100%;
     -webkit-font-feature-settings: "kern" 1;
     -moz-font-feature-settings: "kern" 1;
     -o-font-feature-settings: "kern" 1;
     font-feature-settings: "kern" 1;
     font-kerning: normal;
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 
@@ -91,15 +92,16 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-    color: $brand-color;
+    color: var(--brand-color);
     text-decoration: none;
+    transition: color 0.2s ease;
 
     &:visited {
-        color: darken($brand-color, 15%);
+        color: #1e5cb3;
     }
 
     &:hover {
-        color: $text-color;
+        color: var(--text-color);
         text-decoration: underline;
     }
 }
@@ -110,8 +112,8 @@ a {
  * Blockquotes
  */
 blockquote {
-    color: $grey-color;
-    border-left: 4px solid $grey-color-light;
+    color: var(--grey-color);
+    border-left: 4px solid var(--grey-color-light);
     padding-left: $spacing-unit / 2;
     font-size: 18px;
     letter-spacing: -1px;
@@ -130,9 +132,10 @@ blockquote {
 pre,
 code {
     font-size: 15px;
-    border: 1px solid $grey-color-light;
+    border: 1px solid var(--grey-color-light);
     border-radius: 3px;
-    background-color: #eef;
+    background-color: var(--grey-color-light);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
 code {
@@ -186,7 +189,7 @@ pre {
         vertical-align: middle;
 
         path {
-            fill: $grey-color;
+            fill: var(--grey-color);
         }
     }
 }
