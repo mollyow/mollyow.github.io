@@ -4,21 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileOverlay = document.querySelector('.mobile-menu-overlay');
     const body = document.body;
     
-    // Theme toggle functionality for both desktop and mobile
-    function initThemeToggle() {
-        const themeToggles = document.querySelectorAll('.theme-toggle');
-        
-        themeToggles.forEach(toggle => {
-            toggle.addEventListener('click', function() {
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                
-                document.documentElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-            });
-        });
-    }
-    
     // Mobile menu functionality
     if (menuToggle && mobileOverlay) {
         menuToggle.addEventListener('click', function() {
@@ -55,7 +40,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Initialize theme toggle
-    initThemeToggle();
+    // Handle mobile theme toggle separately (it doesn't have an ID)
+    const mobileThemeToggle = document.querySelector('.mobile-theme-toggle');
+    if (mobileThemeToggle) {
+        mobileThemeToggle.addEventListener('click', function() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    }
 });
 </script>

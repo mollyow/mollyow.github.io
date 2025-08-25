@@ -185,7 +185,7 @@ nav {
     
     // Mobile hamburger button - matching Peter's style
     .mobile-menu-toggle {
-        display: none;
+        display: none; // Hidden by default
         background: none;
         border: none;
         cursor: pointer;
@@ -194,7 +194,7 @@ nav {
         padding: 8px; // More padding like Peter's
         
         @include media-query($on-palm) {
-            display: flex; // Show on mobile
+            display: flex; // Show only on mobile
         }
         
         .hamburger-line {
