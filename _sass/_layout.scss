@@ -250,10 +250,17 @@
   .project-img {
     flex: 0 0 160px;
     max-width: 160px;
+    overflow: hidden; // For hover effect
 
     img {
       width: 100%;
       border-radius: 4px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      
+      &:hover {
+        transform: scale(1.05); // Subtle zoom like Peter's
+        opacity: 0.9;
+      }
     }
   }
 
@@ -283,17 +290,16 @@
 
       .project-link-btn {
         background-color: transparent;
-        border: 1px solid #2a7ae2;
-        color: #2a7ae2;
+        border: 1px solid #bbb; // Subtle gray border
+        color: #bbb; // Subtle gray text
         padding: 4px 8px;
         font-size: 0.85rem;
         text-decoration: none;
         border-radius: 4px;
-        transition: all 0.2s ease;
+        transition: opacity 0.2s ease;
 
         &:hover {
-          background-color: #2a7ae2;
-          color: white;
+          opacity: 0.7; // Simple opacity change like Peter's
         }
       }
     }

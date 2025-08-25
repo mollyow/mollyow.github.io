@@ -13,21 +13,46 @@
 		</head>
 		<body>
 			<nav role="navigation" aria-label="Main navigation">
-	    		<ul>
-	        		<li><a href="/" {% if page.url == '/' %}class="active"{% endif %}>Home</a></li>
-	        		<li><a href="/research" {% if page.url contains 'research' %}class="active"{% endif %}>Research</a></li>
-	        		<li><a href="https://mollyow.github.io/assets/cv_MOW_2025.pdf" target="_blank" rel="noopener">CV</a></li>
-	        		<li><a href="/teaching" {% if page.url contains 'teaching' %}class="active"{% endif %}>Teaching</a></li>
-	        		<li><a href="/code" {% if page.url contains 'code' %}class="active"{% endif %}>Tutorials/Code</a></li>
-	        		<li>
-	        			<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-	        				<span class="sun-icon">☀️</span>
-	        				<span class="moon-icon">🌙</span>
-	        			</button>
-	        		</li>
-	    		</ul>
+				<div class="nav-container">
+					<!-- Site title/logo -->
+					<a href="/" class="site-title">molly offer-westort</a>
+					
+					<!-- Desktop Navigation -->
+					<ul class="desktop-nav">
+						<li><a href="/research" {% if page.url contains 'research' %}class="active"{% endif %}>Research</a></li>
+						<li><a href="https://mollyow.github.io/assets/cv_MOW_2025.pdf" target="_blank" rel="noopener">CV</a></li>
+						<li><a href="/teaching" {% if page.url contains 'teaching' %}class="active"{% endif %}>Teaching</a></li>
+						<li><a href="/code" {% if page.url contains 'code' %}class="active"{% endif %}>Tutorials/Code</a></li>
+						<li>
+							<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+								<span class="sun-icon">☀️</span>
+								<span class="moon-icon">🌙</span>
+							</button>
+						</li>
+					</ul>
+					
+					<!-- Mobile Hamburger Menu -->
+					<button class="mobile-menu-toggle" aria-label="Toggle menu">
+						<span class="hamburger-line"></span>
+						<span class="hamburger-line"></span>
+					</button>
+				</div>
+				
+				<!-- Mobile Menu Overlay -->
+				<div class="mobile-menu-overlay">
+					<div class="mobile-nav">
+						<a href="/research" {% if page.url contains 'research' %}class="active"{% endif %}>Research</a>
+						<a href="https://mollyow.github.io/assets/cv_MOW_2025.pdf" target="_blank" rel="noopener">CV</a>
+						<a href="/teaching" {% if page.url contains 'teaching' %}class="active"{% endif %}>Teaching</a>
+						<a href="/code" {% if page.url contains 'code' %}class="active"{% endif %}>Tutorials/Code</a>
+						<button class="theme-toggle mobile-theme-toggle" aria-label="Toggle dark mode">
+							<span class="sun-icon">☀️</span>
+							<span class="moon-icon">🌙</span>
+						</button>
+					</div>
+				</div>
 			</nav>
-			<main class="container">
+			<main class="container{% if page.title == 'Home' %} home-content{% endif %}">
 				{% if page.show_name %}
 				<h1>{{ site.author.name }}</h1>
 				{% endif %}
@@ -41,6 +66,7 @@
 			</footer>
 			
 			{% include dark-mode.html %}
+			{% include mobile-menu.html %}
 			{% include analytics.html %}
 		</body>
 	</html>

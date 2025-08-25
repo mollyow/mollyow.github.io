@@ -1,0 +1,61 @@
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileOverlay = document.querySelector('.mobile-menu-overlay');
+    const body = document.body;
+    
+    // Theme toggle functionality for both desktop and mobile
+    function initThemeToggle() {
+        const themeToggles = document.querySelectorAll('.theme-toggle');
+        
+        themeToggles.forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+        });
+    }
+    
+    // Mobile menu functionality
+    if (menuToggle && mobileOverlay) {
+        menuToggle.addEventListener('click', function() {
+            const isOpen = mobileOverlay.classList.contains('active');
+            
+            if (isOpen) {
+                mobileOverlay.classList.remove('active');
+                menuToggle.classList.remove('active');
+                body.style.overflow = '';
+            } else {
+                mobileOverlay.classList.add('active');
+                menuToggle.classList.add('active');
+                body.style.overflow = 'hidden';
+            }
+        });
+
+        // Close menu when clicking on a link
+        const mobileLinks = document.querySelectorAll('.mobile-nav a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileOverlay.classList.remove('active');
+                menuToggle.classList.remove('active');
+                body.style.overflow = '';
+            });
+        });
+
+        // Close menu when clicking overlay background
+        mobileOverlay.addEventListener('click', function(e) {
+            if (e.target === mobileOverlay) {
+                mobileOverlay.classList.remove('active');
+                menuToggle.classList.remove('active');
+                body.style.overflow = '';
+            }
+        });
+    }
+    
+    // Initialize theme toggle
+    initThemeToggle();
+});
+</script>

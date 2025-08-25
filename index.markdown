@@ -2,7 +2,7 @@
 layout: design-mow
 title: "Home"
 date:   2025-07-15
-show_name: true
+show_name: false
 ---
 <div class="hero-section" markdown="1">
 <img class="profile-image" src="/assets/molly_brick_2021.jpg" alt="Molly Offer-Westort" />

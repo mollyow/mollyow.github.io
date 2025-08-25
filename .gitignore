@@ -1,5 +1,39 @@
+# Jekyll build outputs
 _site/
-.sass-cache
+.sass-cache/
+.jekyll-cache/
 .jekyll-metadata
+
+# Ruby/Bundle
+.bundle/
+vendor/
+Gemfile.lock
+
+# Development tools
+.tool-versions
+.ruby-version
+
+# OS generated files
 .DS_Store
-404.md
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+reference
+CLAUDE.md

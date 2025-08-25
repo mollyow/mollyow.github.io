@@ -36,7 +36,12 @@
         height: auto;
         border-radius: 12px;
         box-shadow: 0 4px 20px var(--card-shadow);
-        transition: box-shadow 0.3s ease;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        
+        &:hover {
+            transform: scale(1.02); // Subtle zoom on hover
+            box-shadow: 0 6px 25px var(--card-shadow);
+        }
         
         @include media-query($on-palm) {
             max-width: 250px;
@@ -92,103 +97,222 @@ body {
     @include media-query($on-laptop) {
         padding: 0 $spacing-sm;
     }
+    
+    // Homepage content - wider for photo + text layout
+    &.home-content {
+        max-width: 1000px; // Wider to accommodate photo + text layout
+        
+        p {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: $spacing-lg;
+        }
+    }
 }
 
-// Navigation styling
+// Navigation styling - minimal approach like Peter's with mobile menu
 nav {
     background: var(--nav-background);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--nav-border);
     position: sticky;
     top: 0;
-    z-index: 100;
-    margin-bottom: $spacing-lg;
+    z-index: 1000;
+    margin-bottom: $spacing-xl; // More space like Peter's
     transition: background-color 0.3s ease, border-color 0.3s ease;
+    padding: $spacing-lg 0; // More padding
     
-    ul {
+    .nav-container {
         max-width: $content-width;
         margin: 0 auto;
-        padding: $spacing-sm $spacing-md;
-        list-style: none;
+        padding: 0 $spacing-md;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+        @include media-query($on-palm) {
+            padding: 0 $spacing-sm;
+        }
+    }
+    
+    .site-title {
+        font-size: 32px; // Large like Peter's
+        font-weight: 800; // Bold
+        color: var(--text-color);
+        text-decoration: none;
+        
+        &:hover {
+            opacity: 0.7;
+        }
+        
+        @include media-query($on-palm) {
+            font-size: 24px;
+        }
+    }
+    
+    .desktop-nav {
         display: flex;
         align-items: center;
         gap: $spacing-lg;
+        list-style: none;
+        margin: 0;
+        padding: 0;
         
         @include media-query($on-palm) {
-            flex-wrap: wrap;
-            gap: $spacing-sm;
-            padding: $spacing-sm;
+            display: none; // Hide on mobile
         }
         
         li {
             a {
                 color: var(--text-color);
                 text-decoration: none;
-                font-weight: 500;
-                padding: $spacing-xs $spacing-sm;
-                border-radius: 6px;
+                font-weight: normal; // Normal weight like Peter's
+                font-size: 16px; // Fixed size
+                padding-bottom: 6px; // Space for border
+                border-bottom: 1px solid transparent;
                 transition: all 0.2s ease;
                 
                 &:hover {
-                    background-color: rgba(42, 122, 226, 0.1);
-                    color: var(--brand-color);
+                    opacity: 0.7; // Simple opacity change like Peter's
                 }
                 
                 &.active {
-                    background-color: var(--brand-color);
-                    color: var(--background-color);
+                    border-bottom: 1px solid var(--text-color); // Underline instead of background
                 }
+            }
+        }
+    }
+    
+    // Mobile hamburger button - matching Peter's style
+    .mobile-menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        flex-direction: column;
+        gap: 4px;
+        padding: 8px; // More padding like Peter's
+        
+        @include media-query($on-palm) {
+            display: flex; // Show on mobile
+        }
+        
+        .hamburger-line {
+            width: 20px; // Smaller width like Peter's
+            height: 2px;
+            background: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        
+        &.active {
+            .hamburger-line:first-child {
+                transform: rotate(45deg) translate(3px, 3px); // Smaller translate values
+            }
+            
+            .hamburger-line:last-child {
+                transform: rotate(-45deg) translate(3px, -3px); // Smaller translate values
+            }
+        }
+    }
+    
+    // Mobile menu overlay - matching Peter's style
+    .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98); // More opaque like Peter's
+        backdrop-filter: blur(20px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease; // Smooth transition like Peter's
+        
+        &.active {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem; // More space between links like Peter's
+            padding: 0 2rem;
+            
+            a {
+                color: var(--text-color);
+                text-decoration: none;
+                font-size: 32px; // Larger font size like Peter's
+                font-weight: normal;
+                text-align: center;
+                transition: opacity 0.2s ease;
+                
+                &:hover,
+                &.active {
+                    opacity: 0.7;
+                }
+            }
+            
+            .mobile-theme-toggle {
+                margin-top: $spacing-lg;
             }
         }
     }
 }
 
-// Typography improvements
+// Typography improvements - inspired by Peter's minimal approach
 h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: $spacing-md;
+    font-size: 32px; // Fixed size like Peter's
+    font-weight: normal; // Normal weight for cleaner look
+    margin-bottom: $spacing-lg;
     line-height: 1.2;
     
     @include media-query($on-palm) {
-        font-size: 2rem;
+        font-size: 24px;
     }
 }
 
 h2 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin: $spacing-lg 0 $spacing-sm 0;
+    font-size: 24px; // Larger, fixed size
+    font-weight: normal;
+    margin: $spacing-xl 0 $spacing-md 0;
     line-height: 1.3;
 }
 
 h3 {
-    font-size: 1.4rem;
-    font-weight: 500;
-    margin: $spacing-md 0 $spacing-sm 0;
+    font-size: 20px; // Larger
+    font-weight: normal;
+    margin: $spacing-lg 0 $spacing-sm 0;
 }
 
 p {
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 16px; // Larger base text like Peter's
+    line-height: 1.7; // Better line spacing
     color: var(--text-color);
-    margin-bottom: $spacing-sm;
+    margin-bottom: $spacing-lg; // More space between paragraphs
 }
 
-// Links
+// Links - subtle approach like Peter's
 a {
-    color: var(--brand-color);
-    text-decoration: none;
-    transition: color 0.2s ease;
+    color: #bbb; // Lighter gray like Peter's
+    text-decoration: underline; // Always underlined
+    transition: opacity 0.2s ease;
     
     &:hover {
-        color: #1e5cb3;
-        text-decoration: underline;
+        opacity: 0.7; // Simple opacity change
     }
 }
 
-[data-theme="dark"] a:hover {
-    color: #7bb8ff;
+// Special case for navigation links to keep them black
+nav a {
+    color: var(--text-color) !important;
+    text-decoration: none !important;
 }
 
 // Footer styling
