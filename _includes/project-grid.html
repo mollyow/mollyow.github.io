@@ -184,7 +184,7 @@
       {% assign slug = project.path | split: '/' | last | split: '.' | first %}
       <div class="project-card {% for tag in project.tags %}tag-{{ tag | slugify }} {% endfor %}">
         <div class="project-img">
-          <img src="{{ site.baseurl }}/assets/img/projects/{{ slug }}/featured.png" alt="{{ project.title }}" onerror="this.style.display='none';">
+          <img src="{{ site.baseurl }}/assets/img/projects/{{ slug }}/featured.png" alt="{{ project.title }}" onerror="this.parentElement.style.display='none';">
         </div>
         <div class="project-details">
           <h2>{{ project.title }}</h2>
@@ -221,7 +221,7 @@
           {% if project.links %}
             <div class="project-links">
               {% for link in project.links %}
-                <a class="project-link-btn" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.name }}</a>
+                <a class="project-link-btn" href="{{ link.url }}"{% if link.url contains '://' %} target="_blank" rel="noopener"{% endif %}>{{ link.name }}</a>
               {% endfor %}
             </div>
           {% endif %}
