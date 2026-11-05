@@ -22,7 +22,7 @@ Course website: [https://github.com/UChicago-pol-methods/plsc-40601-CI-ML](https
 
 **Lab & Field Experiments in Comparative Politics and Policy (PLSC 48110/28110)**
 <br />
-[Syllabus](https://docs.google.com/document/d/1rP35xUjv5yG_3O_kjvSFSWJbrn52myI_LdM4LQRM4iA/edit?usp=sharing){:target="_blank"}
+[Syllabus](https://github.com/UChicago-pol-methods/plsc48110/blob/main/syllabus/syllabus.pdf){:target="_blank"}
 
 
 ---
