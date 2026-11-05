@@ -1,8 +1,8 @@
 ---
-title: "Opportunities to govern: How to increase the supply of moderate and qualified candidates"
-date: 2025-12-23
+title: "Opportunities to govern: How to increase the supply of moderate and competent candidates"
+date: 2025-07-31
 authors:
-  - Andrew Eggers|https://andy.egge.rs/
+  - Andy Eggers|https://andy.egge.rs/
   - Anthony Fowler|https://voices.uchicago.edu/fowler/
   - William Howell|https://politicalscience.jhu.edu/directory/william-howell/
   - Molly Offer-Westort
@@ -19,12 +19,9 @@ office, the threshold needed to pass legislation is lower, and staff support is 
 findings have broad implications for our understanding of political representation, government
 effectiveness, and the relationship between institutional reform and mass politics."
 type: project
-publication: "Political Science Research and Methods 14(4):1460–1479"
-publication_year: 2026
+publication: "Working paper"
 tags: ["experiment"]
 links:
-  - name: "paper"
-    url: "https://doi.org/10.1017/psrm.2025.10076"
   - name: "pre-analysis plan"
     url: "https://osf.io/ft8pq"
 ---

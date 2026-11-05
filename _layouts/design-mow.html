@@ -5,14 +5,14 @@
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<title>Molly Offer-Westort: {{ page.title }}</title>
 			<meta name="description" content="{{ site.description | default: 'Molly Offer-Westort - Assistant Professor of Political Science at The University of Chicago' }}">
-			<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon-32.png' | relative_url }}">
+			<link rel="icon" type="image/png" href="https://mollyow.github.io/assets/molly_brick_2021.jpg">
 			<link rel="preconnect" href="https://fonts.googleapis.com">
 			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 			<link rel="stylesheet" type="text/css" href="/css/main.css">
 		</head>
 		<body>
-			<nav class="site-navigation" aria-label="Main navigation">
+			<nav role="navigation" aria-label="Main navigation">
 				<div class="nav-container">
 					<!-- Site title/logo -->
 					<a href="/" class="site-title">molly offer-westort</a>
@@ -20,38 +20,37 @@
 					<!-- Desktop Navigation -->
 					<ul class="desktop-nav">
 						<li><a href="/research" {% if page.url contains 'research' %}class="active"{% endif %}>Research</a></li>
-						<li><a href="{{ site.cv_path | relative_url }}" target="_blank" rel="noopener">CV</a></li>
+						<li><a href="https://mollyow.github.io/assets/cv_MOW_2025.pdf" target="_blank" rel="noopener">CV</a></li>
 						<li><a href="/teaching" {% if page.url contains 'teaching' %}class="active"{% endif %}>Teaching</a></li>
 						<li><a href="/code" {% if page.url contains 'code' %}class="active"{% endif %}>Tutorials/Code</a></li>
 						<li>
-							<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode">
-								<span class="sun-icon" aria-hidden="true">☀️</span>
-								<span class="moon-icon" aria-hidden="true">🌙</span>
+							<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+								<span class="sun-icon">☀️</span>
+								<span class="moon-icon">🌙</span>
 							</button>
 						</li>
 					</ul>
 					
 					<!-- Mobile Hamburger Menu -->
-					<button class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-haspopup="dialog" aria-expanded="false" aria-controls="mobile-menu">
-						<span class="hamburger-line" aria-hidden="true"></span>
-						<span class="hamburger-line" aria-hidden="true"></span>
+					<button class="mobile-menu-toggle" aria-label="Toggle menu">
+						<span class="hamburger-line"></span>
+						<span class="hamburger-line"></span>
 					</button>
 				</div>
 				
 				<!-- Mobile Menu Overlay -->
-				<dialog class="mobile-menu-overlay" id="mobile-menu" aria-label="Main menu">
-					<button class="mobile-menu-close" type="button" autofocus>Close <span aria-hidden="true">×</span></button>
+				<div class="mobile-menu-overlay">
 					<div class="mobile-nav">
 						<a href="/research" {% if page.url contains 'research' %}class="active"{% endif %}>Research</a>
-						<a href="{{ site.cv_path | relative_url }}" target="_blank" rel="noopener">CV</a>
+						<a href="https://mollyow.github.io/assets/cv_MOW_2025.pdf" target="_blank" rel="noopener">CV</a>
 						<a href="/teaching" {% if page.url contains 'teaching' %}class="active"{% endif %}>Teaching</a>
 						<a href="/code" {% if page.url contains 'code' %}class="active"{% endif %}>Tutorials/Code</a>
-						<button class="theme-toggle mobile-theme-toggle" type="button" aria-label="Switch to dark mode">
-							<span class="sun-icon" aria-hidden="true">☀️</span>
-							<span class="moon-icon" aria-hidden="true">🌙</span>
+						<button class="theme-toggle mobile-theme-toggle" aria-label="Toggle dark mode">
+							<span class="sun-icon">☀️</span>
+							<span class="moon-icon">🌙</span>
 						</button>
 					</div>
-				</dialog>
+				</div>
 			</nav>
 			<main class="container{% if page.title == 'Home' %} home-content{% endif %}">
 				{% if page.show_name %}
@@ -68,7 +67,6 @@
 			
 			{% include dark-mode.html %}
 			{% include mobile-menu.html %}
-			<script src="{{ '/assets/js/project-grid.js' | relative_url }}" defer></script>
 			{% include analytics.html %}
 		</body>
 	</html>

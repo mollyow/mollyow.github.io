@@ -315,8 +315,8 @@
   gap: 6px;
 
   .tag {
-    background: var(--background-color);
-    color: var(--text-color);
+    background: #f0f0f0;
+    color: #444;
     padding: 3px 7px;
     border-radius: 3px;
     font-size: 0.75rem;
@@ -326,7 +326,7 @@
 
 .project-publication {
   font-style: italic;
-  color: var(--text-color);
+  color: #666;
   margin-bottom: 10px;
 }
 
