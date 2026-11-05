@@ -1,11 +1,12 @@
 ---
 title: "On the foundations of the design-based approach"
-date: 2025-05-15
+date: 2026-06-25
 authors:
-  - P.M. Aronow|https://pmaronow.github.io/
+  - P. M. Aronow|https://pmaronow.github.io/
   - Austin Jang|https://austinjang.github.io/
-  - Molly Offer‑Westort
-publication: "Working paper"
+  - Molly Offer-Westort
+publication: "Political Analysis, First View, 1–16"
+publication_year: 2026
 featured: false
 summary: "The design-based paradigm may be adopted in causal inference and survey sampling when we assume Rubin's stable unit treatment value assumption (SUTVA) or impose similar frameworks.
 While often taken for granted, such assumptions entail strong claims about the data generating process. 
@@ -18,6 +19,8 @@ In so doing, we provide clarity on the nature and importance of SUTVA for applie
 type: project
 tags: ["estimands, identification, and statistical testing"]
 links:
+  - name: "paper"
+    url: "https://doi.org/10.1017/pan.2026.10045"
   - name: "preprint"
     url: "https://arxiv.org/abs/2505.10519"
 ---

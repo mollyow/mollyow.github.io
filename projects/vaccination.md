@@ -1,10 +1,11 @@
 ---
-title: "Conversations with a concern-addressing chatbot increase COVID-19 vaccination intentions among social media users in Kenya and Nigeria"
-date: 2025-01-10
+title: "Conversations with a concern-addressing chatbot increased COVID-19 vaccination intentions among social media users in Kenya and Nigeria"
+date: 2026-05-20
 authors:
-- Leah Rosenzweig|https://leahrosenzweig.com
-- Molly Offer‑Westort
-publication: "Journal of Politics (forthcoming)"
+- Leah R. Rosenzweig|https://leahrosenzweig.com
+- Molly Offer-Westort
+publication: "The Journal of Politics 88(4):1668–1673"
+publication_year: 2026
 featured: false
 summary: "During mass vaccination campaigns, social media platforms can facilitate the dissemination of public health information but may also contribute to vaccine hesitancy by serving as avehicle for the spread of false and misleading information. 
 Although talking with health professionals is an important avenue to address individuals’ concerns, one-on-one conversationswith healthcare providers are challenging to scale. 
@@ -17,6 +18,8 @@ With advertising costs as low as $0.21 per person engaged and $4.33 per person i
 type: project
 tags: ["adaptive", "messaging", "social media", "experiment"]
 links:
+  - name: "paper"
+    url: "https://doi.org/10.1086/735504"
   - name: "preprint"
     url: "https://osf.io/preprints/osf/mgyxu"
   - name: "pre-analysis plan"

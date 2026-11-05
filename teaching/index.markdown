@@ -1,10 +1,14 @@
 ---
 layout: design-mow
 title: "Teaching"
-date:   2025-07-15
+date:   2026-11-04
 ---
 
 ## Graduate courses
+
+**Causal Inference (PLSC 30600)**
+<br />
+Winter 2026; Winter 2027 (scheduled)
 
 **Introduction to Quantitative Social Science (PLSC 30500)** — with Andy Eggers
 <br />
@@ -27,10 +31,10 @@ Course website: [https://github.com/UChicago-pol-methods/plsc-40601-CI-ML](https
 
 **Social Science Inquiry II (SOSC 13200)**
 <br />
-Course website: [https://github.com/UChicago-pol-methods/SOSC13200-W24](https://github.com/UChicago-pol-methods/SOSC13200-W24){:target="_blank"}
+Course website: [https://github.com/UChicago-pol-methods/SOSC13200-W26](https://github.com/UChicago-pol-methods/SOSC13200-W26){:target="_blank"}
 
 
 **Social Science Inquiry III (SOSC 13300)**
 <br />
-Course website: [https://github.com/UChicago-pol-methods/SOSC13300-W24](https://github.com/UChicago-pol-methods/SOSC13300-W24){:target="_blank"}
+Course website: [https://github.com/UChicago-pol-methods/SOSC13300-S26](https://github.com/UChicago-pol-methods/SOSC13300-S26){:target="_blank"}
 

@@ -1,8 +1,8 @@
 ---
-title: "Deep canvassing with automated conversational agents: personalized messaging to change attitudes"
-date: 2025-03-09
+title: "Deep canvassing with automated conversational agents: Personalized messaging to change attitudes"
+date: 2026-01-23
 authors:
-  - Molly Offer‑Westort
+  - Molly Offer-Westort
   - Jiehan Liu|https://github.com/jiehanL
   - Nick Feamster|https://people.cs.uchicago.edu/~feamster/
   - Kartik Garg|https://www.linkedin.com/in/kartik-garg/
@@ -16,9 +16,12 @@ Scripts used in this application are based on those used by transgender allies i
 To personalize messaging, the conversational agent uses natural language processing to detect conversational topics, and shares relevant pre-scripted messages of information and third-person experiences, encouraging respondents to engage in perspective-taking with respect to an outgroup. 
 This study demonstrates the potential of automated social media messaging for deep canvassing, with possible applications by governments, public health agencies, and political organizations."
 type: project
-publication: "Working paper"
+publication: "Research & Politics 13(1):20531680251414926"
+publication_year: 2026
 tags: ["messaging", "social media", "experiment"]
 links:
+  - name: "paper"
+    url: "https://doi.org/10.1177/20531680251414926"
   - name: "pre-analysis plan"
     url: "https://osf.io/dtm4g"
   - name: "project page"

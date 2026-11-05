@@ -2,6 +2,7 @@
 title: 
 description: Molly Offer-Westort
 baseurl: ""
+cv_path: "/assets/cv_MOW_2026.pdf"
 url: "http://mollyow.github.io"
 author:
   name: Molly Offer-Westort
@@ -16,6 +17,10 @@ markdown: kramdown
 sass:
   load_paths:
     - css
+
+exclude:
+  - reference
+  - CLAUDE.md
 
 collections:
   projects:

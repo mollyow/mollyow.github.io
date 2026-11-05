@@ -2,9 +2,10 @@
 title: "Understanding Ding's apparent paradox"
 date: 2017-08-01
 authors:
-  - P.M. Aronow|https://pmaronow.github.io/
-  - Molly Offer‑Westort
-publication: "Statistical Science"
+  - Peter M. Aronow|https://pmaronow.github.io/
+  - Molly R. Offer-Westort
+publication: "Statistical Science 32(3):346–348"
+publication_year: 2017
 featured: false
 summary: "(1) Rao type tests may be sub-optimal under nonlocal alternatives (Engle, 1984), and as Ding (2017) shows, the FRT is asymptotically equivalent to a Rao-type test
 assuming constant effects. 
@@ -17,7 +18,6 @@ We illustrate this by comparing the Wald type analogue to the FRT to the standar
 Combining (i) and (ii), we see that Ding's (2017) apparent paradox follows from the use of a suboptimal test under nonlocal alternatives and the well-known behavior of tests of joint hypotheses when one of the constituent hypotheses is false, 
 (iii) We also note an error in Ding's (2017) Theorem 7 and suggest a refinement that is correct at full generality. "
 type: project
-publication: "Statistical Science"
 tags: ["estimands, identification, and statistical testing"]
 links:
   - name: "paper"

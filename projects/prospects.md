@@ -2,10 +2,11 @@
 title: "Adaptive experimental design: Prospects and applications in political science"
 date: 2021-02-05
 authors:
-  - Molly Offer‑Westort
+  - Molly Offer-Westort
   - Alexander Coppock|https://alexandercoppock.com/
   - Donald P. Green|https://sites.google.com/site/donaldpgreen/
-publication: "American Journal of Political Science"
+publication: "American Journal of Political Science 65(4):826–844"
+publication_year: 2021
 featured: false
 summary: "Experimental researchers in political science frequently face the problem of inferring which of several treatment arms is most effective. 
 They may also seek to estimate mean outcomes under that arm, construct confidence intervals, and test hypotheses. 

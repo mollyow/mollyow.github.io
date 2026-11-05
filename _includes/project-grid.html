@@ -78,6 +78,24 @@
     border-radius: 6px;
   }
 
+  .project-image-link {
+    display: block;
+    cursor: zoom-in;
+  }
+
+  .project-image-action,
+  .project-image-caption {
+    display: block;
+    margin: 0.5rem 0 0;
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .project-publication {
+    color: var(--text-color);
+    font-size: 0.9rem;
+  }
+
   .project-details {
     flex: 1 1 300px;
     min-width: 200px;
@@ -156,7 +174,14 @@
     }
 
     .project-img {
+      flex-basis: auto;
       margin: 0 auto;
+    }
+
+    .project-details {
+      flex-basis: auto;
+      width: 100%;
+      min-width: 0;
     }
 
     .filter-sidebar ul {
@@ -192,14 +217,27 @@
   <div class="research-list" id="research-list">
     {% assign sorted_projects = site.pages | where: "type", page.type %}
     {% assign sorted_projects = sorted_projects | where_exp: "item", "item.path contains 'projects/'" %}
-    {% assign sorted_projects = sorted_projects | sort: "date" | reverse %}
+    {% assign dated_projects = sorted_projects | where_exp: "item", "item.date != nil" | sort: "date" | reverse %}
+    {% assign undated_projects = sorted_projects | where_exp: "item", "item.date == nil" | sort: "title" %}
+    {% assign sorted_projects = dated_projects | concat: undated_projects %}
 
     {% for project in sorted_projects %}
       {% assign slug = project.path | split: '/' | last | split: '.' | first %}
+      {% assign default_image_path = '/assets/img/projects/' | append: slug | append: '/featured.png' %}
+      {% assign image_path = project.image | default: default_image_path %}
+      {% assign project_image = site.static_files | where: 'path', image_path | first %}
       <div class="project-card {% for tag in project.tags %}tag-{{ tag | slugify }} {% endfor %}">
+        {% if project_image %}
         <div class="project-img">
-          <img src="{{ site.baseurl }}/assets/img/projects/{{ slug }}/featured.png" alt="{{ project.title }}" onerror="this.parentElement.style.display='none';">
+          <a class="project-image-link" href="{{ image_path | relative_url }}" target="_blank" rel="noopener" aria-label="Open full-size image for {{ project.title | strip_html | escape }} (opens in a new tab)">
+            <img src="{{ image_path | relative_url }}" alt="{{ project.image_alt | default: project.title | escape }}" loading="lazy">
+            <span class="project-image-action" aria-hidden="true">View full size</span>
+          </a>
+          {% if project.image_caption %}
+            <p class="project-image-caption">{{ project.image_caption | escape }}</p>
+          {% endif %}
         </div>
+        {% endif %}
         <div class="project-details">
           <h2>{{ project.title }}</h2>
 
@@ -214,6 +252,10 @@
                 {% endif %}
               {% endfor %}
             </p>
+          {% endif %}
+
+          {% if project.publication %}
+            <p class="project-publication">{{ project.publication | escape }}{% if project.publication_year %} ({{ project.publication_year }}){% endif %}</p>
           {% endif %}
 
           {% if project.summary %}
