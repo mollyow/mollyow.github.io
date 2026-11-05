@@ -1,8 +1,8 @@
 ---
 title: "Which frame fits? Policy learning with framing for climate change policy attitudes"
-date: 2025-07-08
+date: 2026-01-11
 authors:
-  - Molly Offer‑Westort
+  - Molly Offer-Westort
   - Will Gruen
   - Carter Herron
   - Kaden Hyatt
@@ -25,9 +25,14 @@ authors:
 featured: false
 summary: "How should climate policy be framed to maximize public support? We evaluate the effects of five distinct message frames—scientific, religious, moral, and two economic (efficiency and equity)—on support for climate change policy using a randomized experiment with over 2,300 U.S. respondents. Moving beyond pairwise frame comparisons, we adopt a policy learning approach that identifies the most effective frame using cross-validated sample splitting, thereby avoiding selective inference. We find that the economic efficiency frame consistently yields the largest gains in policy support, outperforming both the control condition and all alternative frames. While the effects of personalized frame assignment were modest and not significantly different from assigning the best overall frame, we find consistent positive effects of the efficiency frame across partisan subgroups. Our findings offer methodological and substantive contributions: we provide a design for learning and validating optimal treatments in experimental framing studies, and we offer practical guidance for advocates seeking to increase support for climate action. "
 type: project
-publication: "Working paper"
+publication: "Research & Politics 13(1):20531680251414927"
+publication_year: 2026
 tags: ["messaging", "experiment"]
 links:
+  - name: "paper"
+    url: "https://doi.org/10.1177/20531680251414927"
+  - name: "replication data and code"
+    url: "https://github.com/UChicago-pol-methods/climate-framing-replication"
   - name: "pre-analysis plan"
     url: "https://osf.io/2ztxe"
   - name: "Project Repository"

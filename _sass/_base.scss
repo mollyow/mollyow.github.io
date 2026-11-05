@@ -92,12 +92,12 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-    color: var(--brand-color);
+    color: var(--link-color);
     text-decoration: none;
     transition: color 0.2s ease;
 
     &:visited {
-        color: #1e5cb3;
+        color: var(--visited-link-color);
     }
 
     &:hover {

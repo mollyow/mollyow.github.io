@@ -1,12 +1,13 @@
 ---
-title: "Experimentation for homogeneous policy change"
-date: 2025-06-25
+title: "Designing multi-arm experiments for global average treatment effects under partial interference"
+date: 2026-08-26
 authors:
-  - Molly Offer‑Westort
+  - Molly Offer-Westort
   - Drew Dimmery|https://ddimmery.com/
 publication: "Working paper"
+publication_year: 2026
 featured: false
-summary: "When the Stable Unit Treatment Value Assumption (SUTVA) is violated and there is interference among units, there is not a uniquely defined Average Treatment Effect (ATE), and alternative estimands may be of interest, among them average unit-level differences in outcomes under different homogeneous treatment policies. We term this target the Homogeneous Assignment Average Treatment Effect (HAATE). We consider approaches to experimental design with multiple treatment conditions under partial interference and, given the estimand of interest, we show that difference-in-means estimators may perform better than correctly specified regression models in finite samples on root mean squared error (RMSE). With errors correlated at the cluster level, we demonstrate that two-stage randomization procedures with intra-cluster correlation of treatment strictly between zero and one may dominate one-stage randomization designs on the same metric. Simulations demonstrate performance of this approach; an application to online experiments at Facebook is discussed. "
+summary: "When units affect one another, an experiment must distinguish the effect of assigning individual units to treatment from the effect of adopting the same policy for everyone. We study designs for estimating the Global Average Treatment Effect (GATE) under partial interference. Our two-stage designs vary treatment correlation within clusters, balancing the bias of unit-level randomization against the lower precision of cluster-level randomization. For experiments with several treatment arms, a Dirichlet–multinomial design makes this trade-off operational, with pilot data and a model guiding the choice of design parameter. Simulations and a Facebook video-player experiment involving 43 million user sessions show how intermediate designs can improve estimation of global rollout effects."
 type: project
 tags: ["experiment", "estimands, identification, and statistical testing", "social media"]
 links:

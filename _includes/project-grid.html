@@ -1,193 +1,55 @@
-<style>
-  .research-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    padding: 2rem;
-  }
+{% assign sorted_projects = site.pages | where: "type", page.type %}
+{% assign sorted_projects = sorted_projects | where_exp: "item", "item.path contains 'projects/'" %}
+{% if include.status == 'published' %}
+  {% assign sorted_projects = sorted_projects | where_exp: "item", "item.publication != 'Working paper'" %}
+{% elsif include.status == 'working' %}
+  {% assign sorted_projects = sorted_projects | where: "publication", "Working paper" %}
+{% endif %}
+{% assign sorted_projects = sorted_projects | sort: "date" | reverse %}
+{% assign grid_id = include.grid_id | default: 'projects' %}
+{% assign title_tag = include.heading_tag | default: 'h2' %}
+{% assign show_filters = true %}
+{% if include.show_filters == false %}{% assign show_filters = false %}{% endif %}
 
-  .filter-sidebar {
-    flex: 1 1 100%;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .filter-sidebar h3 {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .filter-sidebar ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
-
-  .filter-sidebar li {
-    cursor: pointer;
-    padding: 0.25rem 0.5rem;
-    color: #2a7ae2;
-    font-weight: 500;
-    border-radius: 4px;
-    transition: background-color 0.2s;
-  }
-
-  .filter-sidebar li:hover,
-  .filter-sidebar li.active {
-    background-color: #e0eaff;
-  }
-
-  .research-list {
-    flex: 1 1 100%;
-  }
-
-  .project-card {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    align-items: flex-start;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 1.5rem;
-  }
-
-  .project-card.hidden {
-    display: none;
-  }
-
-  .project-img {
-    flex: 0 0 200px;
-    max-width: 200px;
-  }
-
-  .project-img img {
-    width: 100%;
-    height: auto;
-    border-radius: 6px;
-  }
-
-  .project-details {
-    flex: 1 1 300px;
-    min-width: 200px;
-  }
-
-  .tag {
-    display: inline-block;
-    background: #f0f0f0;
-    color: #444;
-    padding: 3px 7px;
-    border-radius: 3px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    margin-right: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-
-  .tag:hover {
-    background-color: #ccc;
-    color: #000;
-  }
-
-  .project-links {
-    margin-top: 0.5rem;
-  }
-
-  .project-link-btn {
-    display: inline-block;
-    margin: 0.25rem 0.25rem 0 0;
-    padding: 6px 12px;
-    border: 2px solid #2a7ae2;
-    background-color: transparent;
-    color: #2a7ae2;
-    text-decoration: none;
-    font-size: 0.8rem;
-    font-weight: 600;
-    border-radius: 5px;
-    transition: all 0.2s ease;
-  }
-
-  .project-link-btn:hover {
-    background-color: #2a7ae2;
-    color: #fff;
-  }
-
-  .summary-short {
-    display: inline;
-  }
-
-  .summary-full {
-    display: none;
-  }
-
-  .toggle-summary-btn {
-    background: none;
-    border: none;
-    color: #2a7ae2;
-    cursor: pointer;
-    font-size: 0.85rem;
-    padding: 0;
-    margin-top: 0.2rem;
-  }
-
-  .toggle-summary-btn:hover {
-    text-decoration: underline;
-  }
-
-  @media (max-width: 768px) {
-    .project-card {
-      flex-direction: column;
-    }
-
-    .project-img {
-      margin: 0 auto;
-    }
-
-    .filter-sidebar ul {
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .filter-sidebar li {
-      display: inline-block;
-    }
-  }
-</style>
-
-<div class="research-container">
-  <aside class="filter-sidebar">
-    <h3>Filter by Tag</h3>
-    <ul id="tag-filter">
-      <li data-tag="all" class="active">All</li>
+<div class="research-container" data-project-grid>
+  {% if show_filters %}
+  <div class="filter-sidebar" role="group" aria-labelledby="filter-heading-{{ grid_id }}">
+    <p class="filter-heading" id="filter-heading-{{ grid_id }}">{{ include.filter_label | default: 'Filter by topic' }}</p>
+    <ul class="tag-filter">
+      <li><button type="button" data-tag="all" class="filter-button active" aria-pressed="true">All</button></li>
       {% assign all_tags = "" | split: "" %}
-      {% for project in site.pages %}
-        {% if project.path contains 'projects/' and project.type == page.type and project.tags %}
-          {% assign all_tags = all_tags | concat: project.tags %}
-        {% endif %}
+      {% for project in sorted_projects %}
+        {% if project.tags %}{% assign all_tags = all_tags | concat: project.tags %}{% endif %}
       {% endfor %}
       {% assign unique_tags = all_tags | uniq | sort %}
       {% for tag in unique_tags %}
-        <li data-tag="{{ tag | slugify }}">{{ tag }}</li>
+        <li><button type="button" class="filter-button" data-tag="{{ tag | slugify }}" aria-pressed="false">{{ tag }}</button></li>
       {% endfor %}
     </ul>
-  </aside>
+    <p class="filter-status" role="status" aria-live="polite" aria-atomic="true"></p>
+  </div>
+  {% endif %}
 
-  <div class="research-list" id="research-list">
-    {% assign sorted_projects = site.pages | where: "type", page.type %}
-    {% assign sorted_projects = sorted_projects | where_exp: "item", "item.path contains 'projects/'" %}
-    {% assign sorted_projects = sorted_projects | sort: "date" | reverse %}
-
+  <div class="research-list">
     {% for project in sorted_projects %}
       {% assign slug = project.path | split: '/' | last | split: '.' | first %}
+      {% assign default_image_path = '/assets/img/projects/' | append: slug | append: '/featured.png' %}
+      {% assign image_path = project.image | default: default_image_path %}
+      {% assign project_image = site.static_files | where: 'path', image_path | first %}
       <div class="project-card {% for tag in project.tags %}tag-{{ tag | slugify }} {% endfor %}">
+        {% if project_image %}
         <div class="project-img">
-          <img src="{{ site.baseurl }}/assets/img/projects/{{ slug }}/featured.png" alt="{{ project.title }}" onerror="this.parentElement.style.display='none';">
+          <a class="project-image-link" href="{{ image_path | relative_url }}" target="_blank" rel="noopener" aria-label="Open full-size image for {{ project.title | strip_html | escape }} (opens in a new tab)">
+            <img src="{{ image_path | relative_url }}" alt="{{ project.image_alt | default: project.title | escape }}" loading="lazy">
+            <span class="project-image-action" aria-hidden="true">View full size</span>
+          </a>
+          {% if project.image_caption %}
+            <p class="project-image-caption">{{ project.image_caption | escape }}</p>
+          {% endif %}
         </div>
+        {% endif %}
         <div class="project-details">
-          <h2>{{ project.title }}</h2>
+          <{{ title_tag }} class="project-title">{{ project.title | markdownify | remove: '<p>' | remove: '</p>' | strip }}</{{ title_tag }}>
 
           {% if project.authors %}
             <p class="project-authors">
@@ -202,18 +64,26 @@
             </p>
           {% endif %}
 
+          {% if project.publication %}
+            <p class="project-publication">{{ project.publication | escape }}{% if project.publication_year %} ({{ project.publication_year }}){% endif %}</p>
+          {% endif %}
+
           {% if project.summary %}
             <div class="project-summary">
-              <span class="summary-short">{{ project.summary | truncatewords: 25 | markdownify }}</span>
-              <span class="summary-full">{{ project.summary | markdownify }}</span>
-              <br><button class="toggle-summary-btn">Read more</button>
+              <div class="summary-short">{{ project.summary | truncatewords: 25 | markdownify }}</div>
+              <div class="summary-full" id="summary-{{ grid_id }}-{{ slug }}">{{ project.summary | markdownify }}</div>
+              <button class="toggle-summary-btn" type="button" aria-expanded="false" aria-controls="summary-{{ grid_id }}-{{ slug }}">Read more</button>
             </div>
           {% endif %}
 
           {% if project.tags %}
             <div class="tags">
               {% for tag in project.tags %}
-                <span class="tag tag-chip" data-tag="{{ tag | slugify }}">{{ tag }}</span>
+                {% if show_filters %}
+                  <button type="button" class="tag tag-chip" data-tag="{{ tag | slugify }}" aria-pressed="false">{{ tag }}</button>
+                {% else %}
+                  <span class="tag">{{ tag }}</span>
+                {% endif %}
               {% endfor %}
             </div>
           {% endif %}
@@ -230,57 +100,3 @@
     {% endfor %}
   </div>
 </div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  // Tag filtering
-  function activateFilter(tagSlug) {
-    const allCards = document.querySelectorAll(".project-card");
-    const allSidebar = document.querySelectorAll("#tag-filter li");
-
-    allSidebar.forEach(i => i.classList.remove("active"));
-    document.querySelectorAll(`#tag-filter li[data-tag="${tagSlug}"]`).forEach(i => i.classList.add("active"));
-
-    allCards.forEach(card => {
-      if (tagSlug === "all") {
-        card.classList.remove("hidden");
-      } else {
-        card.classList.toggle("hidden", !card.classList.contains(`tag-${tagSlug}`));
-      }
-    });
-  }
-
-  document.querySelectorAll("#tag-filter li").forEach(item => {
-    item.addEventListener("click", () => {
-      activateFilter(item.getAttribute("data-tag"));
-    });
-  });
-
-  document.querySelectorAll(".tag-chip").forEach(chip => {
-    chip.addEventListener("click", () => {
-      activateFilter(chip.getAttribute("data-tag"));
-    });
-  });
-
-  // Summary toggling
-  document.querySelectorAll('.toggle-summary-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const summary = btn.closest('.project-summary');
-      const short = summary.querySelector('.summary-short');
-      const full = summary.querySelector('.summary-full');
-
-      const isVisible = full.style.display === 'inline';
-
-      if (isVisible) {
-        full.style.display = 'none';
-        short.style.display = 'inline';
-        btn.textContent = 'Read more';
-      } else {
-        full.style.display = 'inline';
-        short.style.display = 'none';
-        btn.textContent = 'Show less';
-      }
-    });
-  });
-});
-</script>

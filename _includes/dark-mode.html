@@ -1,25 +1,41 @@
 <script>
-// Simple, reliable dark mode toggle
 (function() {
-    // Set theme immediately to prevent flash
-    const savedTheme = localStorage.getItem('theme');
+    let savedTheme;
+    try {
+        savedTheme = localStorage.getItem('theme');
+    } catch (error) {
+        // Theme controls still work when browser storage is unavailable.
+    }
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+    const theme = savedTheme === 'dark' || savedTheme === 'light'
+        ? savedTheme
+        : (systemPrefersDark ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', theme);
-    
-    // Wait for DOM to be ready
+
     document.addEventListener('DOMContentLoaded', function() {
-        const toggle = document.getElementById('theme-toggle');
-        
-        if (toggle) {
-            toggle.addEventListener('click', function() {
-                const current = document.documentElement.getAttribute('data-theme');
-                const newTheme = current === 'dark' ? 'light' : 'dark';
-                
-                document.documentElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
+        const toggles = document.querySelectorAll('.theme-toggle');
+
+        function updateLabels() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            toggles.forEach(function(toggle) {
+                toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
             });
         }
+
+        toggles.forEach(function(toggle) {
+            toggle.addEventListener('click', function() {
+                const current = document.documentElement.getAttribute('data-theme');
+                const nextTheme = current === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', nextTheme);
+                try {
+                    localStorage.setItem('theme', nextTheme);
+                } catch (error) {
+                    // Applying the theme does not require persistent storage.
+                }
+                updateLabels();
+            });
+        });
+        updateLabels();
     });
 })();
 </script>

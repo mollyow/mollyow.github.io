@@ -1,15 +1,16 @@
 ---
-title: "Does Asking Questions Boost Engagement? Three Health Messaging Experiments in the US and Ghana"
-date: 2024-10-05
+title: "Does Q&A boost engagement? Health messaging experiments in the United States and Ghana"
+date: 2025-08-28
 authors:
-  - Erika Kirgios|https://www.erikakirgios.com/
+  - Erika L. Kirgios|https://www.erikakirgios.com/
   - Susan Athey|https://athey.people.stanford.edu/
   - Angela L. Duckworth|https://angeladuckworth.com/
   - Dean Karlan|https://deankarlan.com/
   - Michael Luca|https://carey.jhu.edu/faculty/michael-luca-phd
-  - Katherine Milkman|https://www.katymilkman.com/
-  - Molly Offer‑Westort
-publication: "Management Science (forthcoming)"
+  - Katherine L. Milkman|https://www.katymilkman.com/
+  - Molly Offer-Westort
+publication: "Management Science 72(5):3780–3803"
+publication_year: 2026
 featured: false
 summary: "Effective information sharing is critical for the success of organizations and governments. Because
 information that is easy to access is more likely to be adopted, leaders often minimize friction in
@@ -33,6 +34,8 @@ Q&A-style information delivery may stimulate curiosity, driving its benefits."
 type: project
 tags: ["messaging", "experiment", "social media"]
 links:
+  - name: "paper"
+    url: "https://doi.org/10.1287/mnsc.2024.04405"
   - name: "preprint"
     url: "https://www.nber.org/system/files/working_papers/w33294/w33294.pdf"
   - name: "Ghana project page"
