@@ -290,8 +290,8 @@
 
       .project-link-btn {
         background-color: transparent;
-        border: 1px solid #bbb; // Subtle gray border
-        color: #bbb; // Subtle gray text
+        border: 1px solid currentColor;
+        color: var(--link-color);
         padding: 4px 8px;
         font-size: 0.85rem;
         text-decoration: none;
@@ -299,7 +299,7 @@
         transition: opacity 0.2s ease;
 
         &:hover {
-          opacity: 0.7; // Simple opacity change like Peter's
+          color: var(--text-color);
         }
       }
     }

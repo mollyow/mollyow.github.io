@@ -26,18 +26,27 @@
     gap: 0.75rem;
   }
 
-  .filter-sidebar li {
+  .filter-button {
     cursor: pointer;
     padding: 0.25rem 0.5rem;
-    color: #2a7ae2;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--brand-color);
+    font: inherit;
     font-weight: 500;
     border-radius: 4px;
     transition: background-color 0.2s;
   }
 
-  .filter-sidebar li:hover,
-  .filter-sidebar li.active {
-    background-color: #e0eaff;
+  .filter-button:hover,
+  .filter-button[aria-pressed="true"] {
+    background-color: var(--brand-color);
+    color: var(--background-color);
+  }
+
+  .filter-status {
+    font-size: 0.85rem;
+    margin: 0;
   }
 
   .research-list {
@@ -74,12 +83,14 @@
     min-width: 200px;
   }
 
-  .tag {
+  .tags .tag {
     display: inline-block;
-    background: #f0f0f0;
-    color: #444;
+    background: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--nav-border);
     padding: 3px 7px;
     border-radius: 3px;
+    font: inherit;
     font-size: 0.75rem;
     font-weight: 500;
     margin-right: 5px;
@@ -87,22 +98,24 @@
     transition: background-color 0.2s ease;
   }
 
-  .tag:hover {
-    background-color: #ccc;
-    color: #000;
+  .tags .tag:hover,
+  .tags .tag[aria-pressed="true"] {
+    border-color: var(--brand-color);
+    color: var(--brand-color);
   }
 
   .project-links {
     margin-top: 0.5rem;
   }
 
-  .project-link-btn {
+  .project-link-btn,
+  .project-link-btn:visited {
     display: inline-block;
     margin: 0.25rem 0.25rem 0 0;
     padding: 6px 12px;
-    border: 2px solid #2a7ae2;
+    border: 2px solid var(--brand-color);
     background-color: transparent;
-    color: #2a7ae2;
+    color: var(--brand-color);
     text-decoration: none;
     font-size: 0.8rem;
     font-weight: 600;
@@ -111,8 +124,8 @@
   }
 
   .project-link-btn:hover {
-    background-color: #2a7ae2;
-    color: #fff;
+    background-color: var(--brand-color);
+    color: var(--background-color);
   }
 
   .summary-short {
@@ -126,7 +139,7 @@
   .toggle-summary-btn {
     background: none;
     border: none;
-    color: #2a7ae2;
+    color: var(--brand-color);
     cursor: pointer;
     font-size: 0.85rem;
     padding: 0;
@@ -158,10 +171,10 @@
 </style>
 
 <div class="research-container">
-  <aside class="filter-sidebar">
-    <h3>Filter by Tag</h3>
+  <aside class="filter-sidebar" aria-labelledby="tag-filter-heading">
+    <h3 id="tag-filter-heading">Filter by Tag</h3>
     <ul id="tag-filter">
-      <li data-tag="all" class="active">All</li>
+      <li><button type="button" class="filter-button active" data-tag="all" aria-pressed="true">All</button></li>
       {% assign all_tags = "" | split: "" %}
       {% for project in site.pages %}
         {% if project.path contains 'projects/' and project.type == page.type and project.tags %}
@@ -170,9 +183,10 @@
       {% endfor %}
       {% assign unique_tags = all_tags | uniq | sort %}
       {% for tag in unique_tags %}
-        <li data-tag="{{ tag | slugify }}">{{ tag }}</li>
+        <li><button type="button" class="filter-button" data-tag="{{ tag | slugify }}" aria-pressed="false">{{ tag }}</button></li>
       {% endfor %}
     </ul>
+    <p class="filter-status" role="status" aria-live="polite" aria-atomic="true"></p>
   </aside>
 
   <div class="research-list" id="research-list">
@@ -213,7 +227,7 @@
           {% if project.tags %}
             <div class="tags">
               {% for tag in project.tags %}
-                <span class="tag tag-chip" data-tag="{{ tag | slugify }}">{{ tag }}</span>
+                <button type="button" class="tag tag-chip" data-tag="{{ tag | slugify }}" aria-pressed="false">{{ tag }}</button>
               {% endfor %}
             </div>
           {% endif %}
@@ -236,10 +250,14 @@ document.addEventListener("DOMContentLoaded", function () {
   // Tag filtering
   function activateFilter(tagSlug) {
     const allCards = document.querySelectorAll(".project-card");
-    const allSidebar = document.querySelectorAll("#tag-filter li");
+    const allSidebar = Array.from(document.querySelectorAll("#tag-filter button"));
+    const allFilters = document.querySelectorAll("#tag-filter button, .tag-chip");
 
-    allSidebar.forEach(i => i.classList.remove("active"));
-    document.querySelectorAll(`#tag-filter li[data-tag="${tagSlug}"]`).forEach(i => i.classList.add("active"));
+    allFilters.forEach(button => {
+      const active = button.getAttribute("data-tag") === tagSlug;
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-pressed", String(active));
+    });
 
     allCards.forEach(card => {
       if (tagSlug === "all") {
@@ -248,9 +266,14 @@ document.addEventListener("DOMContentLoaded", function () {
         card.classList.toggle("hidden", !card.classList.contains(`tag-${tagSlug}`));
       }
     });
+
+    const count = Array.from(allCards).filter(card => !card.classList.contains("hidden")).length;
+    const selected = allSidebar.find(button => button.getAttribute("data-tag") === tagSlug);
+    document.querySelector(".filter-status").textContent = 'Showing ' + count + ' of ' + allCards.length +
+      (tagSlug === 'all' ? '.' : ': ' + selected.textContent + '.');
   }
 
-  document.querySelectorAll("#tag-filter li").forEach(item => {
+  document.querySelectorAll("#tag-filter button").forEach(item => {
     item.addEventListener("click", () => {
       activateFilter(item.getAttribute("data-tag"));
     });

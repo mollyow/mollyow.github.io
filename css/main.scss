@@ -60,7 +60,8 @@
 :root {
     --text-color: #111;
     --background-color: #fdfdfd;
-    --brand-color: #2a7ae2;
+    --brand-color: #1e5cb3;
+    --link-color: #595959;
     --nav-background: rgba(255, 255, 255, 0.95);
     --nav-border: rgba(0, 0, 0, 0.1);
     --footer-border: rgba(0, 0, 0, 0.1);
@@ -71,6 +72,7 @@
     --text-color: #e4e4e7;
     --background-color: #0f0f0f;
     --brand-color: #60a5fa;
+    --link-color: #b8b8b8;
     --nav-background: rgba(15, 15, 15, 0.95);
     --nav-border: rgba(255, 255, 255, 0.1);
     --footer-border: rgba(255, 255, 255, 0.1);
@@ -191,60 +193,79 @@ nav {
         cursor: pointer;
         flex-direction: column;
         gap: 4px;
-        padding: 8px; // More padding like Peter's
-        
+        padding: 12px;
+        min-width: 44px;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+
         @include media-query($on-palm) {
             display: flex; // Show only on mobile
         }
-        
+
         .hamburger-line {
             width: 20px; // Smaller width like Peter's
             height: 2px;
             background: var(--text-color);
             transition: all 0.3s ease;
         }
-        
-        &.active {
-            .hamburger-line:first-child {
-                transform: rotate(45deg) translate(3px, 3px); // Smaller translate values
-            }
-            
-            .hamburger-line:last-child {
-                transform: rotate(-45deg) translate(3px, -3px); // Smaller translate values
-            }
-        }
+
     }
-    
+
     // Mobile menu overlay - matching Peter's style with dark mode support
     .mobile-menu-overlay {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
+        inset: 0;
+        width: 100vw;
         height: 100vh;
-        background: var(--nav-background); // Use theme-aware background
-        backdrop-filter: blur(20px);
+        height: 100dvh;
+        max-width: none;
+        max-height: none;
+        box-sizing: border-box;
+        margin: 0;
+        border: 0;
+        padding: 5rem 1.5rem 2rem;
+        background: var(--background-color);
+        color: var(--text-color);
         display: none;
-        align-items: center;
-        justify-content: center;
-        z-index: 9999;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease; // Smooth transition like Peter's
-        
-        &.active {
+        flex-direction: column;
+        overflow-y: auto;
+
+        &[open] {
             display: flex;
-            opacity: 1;
-            visibility: visible;
         }
-        
+
+        &::backdrop {
+            background: var(--nav-background);
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            min-height: 44px;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--nav-border);
+            border-radius: 6px;
+            background: var(--background-color);
+            color: var(--text-color);
+            font: inherit;
+            cursor: pointer;
+        }
+
+        .mobile-menu-close span {
+            margin-left: 0.5rem;
+            font-size: 1.4rem;
+        }
+
         .mobile-nav {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 1.5rem; // Less space between links
-            padding: 0 2rem;
-            
+            margin: auto;
+            padding: 0;
+
             a {
                 color: var(--text-color);
                 text-decoration: none;
@@ -252,15 +273,16 @@ nav {
                 font-weight: normal;
                 text-align: center;
                 transition: opacity 0.2s ease;
-                
+
                 &:hover,
                 &.active {
                     opacity: 0.7;
                 }
             }
-            
+
             .mobile-theme-toggle {
                 margin-top: $spacing-lg;
+                margin-left: 0;
             }
         }
     }
@@ -298,15 +320,27 @@ p {
     margin-bottom: $spacing-lg; // More space between paragraphs
 }
 
-// Links - subtle approach like Peter's
+// Underlined links with readable contrast in both themes.
 a {
-    color: #bbb; // Lighter gray like Peter's
-    text-decoration: underline; // Always underlined
-    transition: opacity 0.2s ease;
-    
-    &:hover {
-        opacity: 0.7; // Simple opacity change
+    color: var(--link-color);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+    transition: color 0.2s ease;
+
+    &:visited {
+        color: var(--link-color);
     }
+
+    &:hover {
+        color: var(--text-color);
+        text-decoration-thickness: 2px;
+    }
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--brand-color);
+    outline-offset: 4px;
 }
 
 // Special case for navigation links to keep them black
@@ -399,17 +433,5 @@ ul.posts {
     
     .moon-icon {
         opacity: 1;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .theme-toggle {
-        .sun-icon {
-            opacity: 0;
-        }
-        
-        .moon-icon {
-            opacity: 1;
-        }
     }
 }

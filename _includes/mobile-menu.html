@@ -1,55 +1,63 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.mobile-menu-toggle');
-    const mobileOverlay = document.querySelector('.mobile-menu-overlay');
-    const body = document.body;
-    
-    // Mobile menu functionality
-    if (menuToggle && mobileOverlay) {
-        menuToggle.addEventListener('click', function() {
-            const isOpen = mobileOverlay.classList.contains('active');
-            
-            if (isOpen) {
-                mobileOverlay.classList.remove('active');
-                menuToggle.classList.remove('active');
-                body.style.overflow = '';
-            } else {
-                mobileOverlay.classList.add('active');
-                menuToggle.classList.add('active');
-                body.style.overflow = 'hidden';
-            }
-        });
+    const menu = document.getElementById('mobile-menu');
+    if (!menuToggle || !menu) return;
 
-        // Close menu when clicking on a link
-        const mobileLinks = document.querySelectorAll('.mobile-nav a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                mobileOverlay.classList.remove('active');
-                menuToggle.classList.remove('active');
-                body.style.overflow = '';
-            });
-        });
+    const closeButton = menu.querySelector('.mobile-menu-close');
+    const mobileViewport = window.matchMedia('(max-width: 600px)');
+    let previousOverflow = '';
 
-        // Close menu when clicking overlay background
-        mobileOverlay.addEventListener('click', function(e) {
-            if (e.target === mobileOverlay) {
-                mobileOverlay.classList.remove('active');
-                menuToggle.classList.remove('active');
-                body.style.overflow = '';
-            }
-        });
+    function closeMenu() {
+        if (menu.open) menu.close();
     }
-    
-    // Handle mobile theme toggle separately (it doesn't have an ID)
-    const mobileThemeToggle = document.querySelector('.mobile-theme-toggle');
-    if (mobileThemeToggle) {
-        mobileThemeToggle.addEventListener('click', function() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-        });
-    }
+
+    menuToggle.addEventListener('click', function() {
+        if (!mobileViewport.matches || menu.open) return;
+        previousOverflow = document.body.style.overflow;
+        menu.showModal();
+        document.body.style.overflow = 'hidden';
+        menuToggle.setAttribute('aria-expanded', 'true');
+        closeButton.focus();
+    });
+
+    closeButton.addEventListener('click', closeMenu);
+    menu.addEventListener('cancel', function(event) {
+        event.preventDefault();
+        closeMenu();
+    });
+    menu.addEventListener('close', function() {
+        document.body.style.overflow = previousOverflow;
+        menuToggle.setAttribute('aria-expanded', 'false');
+        const returnTarget = mobileViewport.matches
+            ? menuToggle
+            : document.querySelector('.site-title');
+        returnTarget.focus();
+    });
+
+    // The native modal dialog makes the page behind the menu inert.
+    menu.addEventListener('keydown', function(event) {
+        if (event.key !== 'Tab') return;
+        const controls = menu.querySelectorAll('a[href], button:not([disabled])');
+        const first = controls[0];
+        const last = controls[controls.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+        }
+    });
+
+    menu.querySelectorAll('.mobile-nav a').forEach(function(link) {
+        link.addEventListener('click', closeMenu);
+    });
+    menu.addEventListener('click', function(event) {
+        if (event.target === menu) closeMenu();
+    });
+    mobileViewport.addEventListener('change', function(event) {
+        if (!event.matches) closeMenu();
+    });
 });
 </script>
