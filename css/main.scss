@@ -129,6 +129,8 @@ nav {
         margin: 0 auto;
         padding: 0 $spacing-md;
         display: flex;
+        flex-wrap: wrap;
+        row-gap: $spacing-sm;
         align-items: center;
         justify-content: space-between;
         
@@ -154,8 +156,10 @@ nav {
     
     .desktop-nav {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         gap: $spacing-lg;
+        row-gap: $spacing-sm;
         list-style: none;
         margin: 0;
         padding: 0;
@@ -341,6 +345,38 @@ a:focus-visible,
 button:focus-visible {
     outline: 3px solid var(--brand-color);
     outline-offset: 4px;
+}
+
+// Public AI resource directory: keep long source URLs readable on small screens.
+.policy-resources {
+    max-width: 900px;
+
+    h2 {
+        scroll-margin-top: 14rem;
+    }
+
+    .policy-updated {
+        font-size: 14px;
+        margin-bottom: $spacing-sm;
+    }
+
+    .policy-jump-links {
+        font-size: 14px;
+        line-height: 1.9;
+        padding-bottom: $spacing-md;
+        border-bottom: 1px solid var(--footer-border);
+    }
+
+    .policy-links {
+        li {
+            margin-bottom: $spacing-md;
+        }
+
+        a {
+            overflow-wrap: anywhere;
+            font-size: 14px;
+        }
+    }
 }
 
 // Special case for navigation links to keep them black
